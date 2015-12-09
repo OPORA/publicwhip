@@ -1,0 +1,36 @@
+- content_for :title, "Авторські права"
+- set_meta_tags description: "The licences that make #{Settings.project_name}'s data and software free and open source."
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      %h1= yield :title
+      %p.lead
+        Ти можеш повторно використовувати та публікувати розміщені на сайті
+        %em
+          = Settings.project_name
+          дані, за умови посилання та розміщення лінку на цей сайт.
+
+.row
+  .col-md-8
+    %section.page-section
+      %h2 Використовуй дані
+
+      %p
+        Цей ресурс є безкоштовним, з відкритим вихідним кодом.
+        Всі дані можуть бути використані повторно.
+        Використовуй
+        = link_to "наш API", help_data_path
+        (інтерфейс програмування додатків).
+
+      %p
+        Завжди уважно перевіряй усі дані, які ти використовуєш.
+        Якщо ти знайшов помилку, будь ласка,
+        #{link_to "напишипро це нам", about_path(anchor: "contact")}, і ми зробимо все можливе, щоб її виправити.
+
+    %section.page-section
+      %h2 Використовуй програмне забезпечення
+
+      %p
+        Завантаж програмне забезпечення на #{link_to "GitHub", 'https://github.com/OPORA/publicwhip'}.
+        Ти можеш використовувати його згідно з правилами #{link_to "GNU Affero General Public License", "http://www.fsf.org/licensing/licenses/agpl-3.0.html"}.
