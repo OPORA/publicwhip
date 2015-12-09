@@ -10,6 +10,11 @@
     - if @display == 'policies'
       = link_to yield(:title), division
     - elsif member
-      = member_voted_with(member, division) + ' on the division ' + content_tag(:em, yield(:title))
+      - if member.vote_on_division_without_tell(division) == "absent"
+        = link_to member.name, member
+        = _("did not vote on the division")
+        = content_tag(:em, yield(:title))
+      - else
+        = member_voted_with(member, division) + ' on the division ' + content_tag(:em, yield(:title))
     - else
       = yield(:title)
