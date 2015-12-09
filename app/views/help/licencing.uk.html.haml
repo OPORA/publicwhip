@@ -1,4 +1,4 @@
-- content_for :title, "Licencing"
+- content_for :title, "Авторські права"
 - set_meta_tags description: "The licences that make #{Settings.project_name}'s data and software free and open source."
 
 - content_for :header do
@@ -6,30 +6,31 @@
     .page-header.container
       %h1= yield :title
       %p.lead
-        You are free to reuse/republish the parliamentary data in
+        Ти можеш повторно використовувати та публікувати розміщені на сайті
         %em
           = Settings.project_name
-        with a reference and link to this website.
+          дані, за умови посилання та розміщення лінку на цей сайт.
 
 .row
   .col-md-8
     %section.page-section
-      %h2 Use the data
+      %h2 Використовуй дані
 
       %p
-        #{link_to "Access the data via our API", help_data_path}.
-        It is licensed under
-        = link_to "Open Data Commons Open Database License", "http://opendatacommons.org/licenses/odbl/"
-        to the extent which we have rights to it. This is an attribution, share-alike licence, so the work you produce with this data must also share the result under a compatible open data licence.
+        Цей ресурс є безкоштовним, з відкритим вихідним кодом.
+        Всі дані можуть бути використані повторно.
+        Використовуй
+        = link_to "наш API", help_data_path
+        (інтерфейс програмування додатків).
+
       %p
-        Always double check any data you use are correct. If you do find an error,
-        = link_to "please let us know", about_path(anchor: "contact")
-        and we'll do our best to correct it for everyone.
+        Завжди уважно перевіряй усі дані, які ти використовуєш.
+        Якщо ти знайшов помилку, будь ласка,
+        #{link_to "напишипро це нам", about_path(anchor: "contact")}, і ми зробимо все можливе, щоб її виправити.
 
     %section.page-section
-      %h2 Use the software
+      %h2 Використовуй програмне забезпечення
 
       %p
-        #{link_to "Download the software on GitHub", 'https://github.com/openaustralia/publicwhip'}.
-        You may use it and change it you as long as you release any changes you make under the terms of
-        #{link_to "GNU Affero General Public License", "http://www.fsf.org/licensing/licenses/agpl-3.0.html"}.
+        Завантаж програмне забезпечення на #{link_to "GitHub", 'https://github.com/OPORA/publicwhip'}.
+        Ти можеш використовувати його згідно з правилами #{link_to "GNU Affero General Public License", "http://www.fsf.org/licensing/licenses/agpl-3.0.html"}.
