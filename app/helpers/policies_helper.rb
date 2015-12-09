@@ -16,7 +16,11 @@ module PoliciesHelper
     if policy_member_distance.nil?
       "voted <strong>unknown about</strong>".html_safe
     elsif policy_member_distance.number_of_votes == 0
-      "has <strong>never voted</strong> on".html_safe
+      if I18n.locale == :uk
+        "<strong>ніколи не голосував</strong>".html_safe
+      else
+        "has <strong>never voted</strong> on".html_safe
+      end
     else
       text = ranges.find{|r| r.first.include?(policy_member_distance.agreement_fraction)}.second
       "voted ".html_safe + content_tag(:strong, text.html_safe)
