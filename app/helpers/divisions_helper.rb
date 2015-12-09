@@ -172,10 +172,11 @@ module DivisionsHelper
 
   def ukrainian_division_title_with_member_position(member, division)
     sentence = if member.vote_on_division_without_tell(division) == "absent"
-      link_to(member.name, member) + " " +  _("did not vote on the division") + " "
+      link_to(member.name, member) + " " +  _("did not vote on the division")
     else
-      member_voted_with(member, division) + ': '
+      member_voted_with(member, division)
     end
+    sentence += ": "
     sentence += content_tag(:em, truncate(division.name, length: 180))
     sentence
   end

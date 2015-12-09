@@ -73,7 +73,7 @@ msgid "did not vote"
 msgstr "не голосував/ла"
 
 msgid "did not vote on the division"
-msgstr "відсутній/ня під час:"
+msgstr "відсутній/ня під час"
 
 msgid "division"
 msgid_plural "divisions"
