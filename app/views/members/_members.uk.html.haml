@@ -14,13 +14,13 @@
               %span.member-party.inline-post-title
                 - if !member.currently_in_parliament?
                   Former
-                = member.party_name
+                =  member.display_party_name_ukr
               обрано від
               - if member.ukranian_list_mp?
                 -#партії
                 -# HACK: This gets the member's first faction, which is hopefully
                 -# the party they entered parliament on
-                = member.person.earliest_member.party
+                = display_name_ukr(member.person.earliest_member.party)
               - else
                 -#області
                 %span.member-electorate= member.electorate
