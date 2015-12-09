@@ -132,5 +132,8 @@ msgstr "Максимально голосує проти"
 msgid "very strongly for"
 msgstr "Максимально голосує за"
 
+msgid "voted "
+msgstr "проголосував/ла "
+
 msgid "voted %{vote_type}"
 msgstr "проголосував/ла %{vote_type}"
