@@ -178,13 +178,6 @@ module DivisionsHelper
     end
   end
 
-  def ukrainian_division_title_with_member_position(member, division)
-    sentence = ukrainian_member_voted_with(member, division)
-    sentence += ": "
-    sentence += content_tag(:em, truncate(division.name, length: 180))
-    sentence
-  end
-
   def member_vote(member, division)
     member.name_without_title + " voted #{vote_display(division.vote_for(member))}"
   end
