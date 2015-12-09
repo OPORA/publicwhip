@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 16:24+1100\n"
-"PO-Revision-Date: 2015-12-09 16:24+1100\n"
+"POT-Creation-Date: 2015-12-09 16:46+1100\n"
+"PO-Revision-Date: 2015-12-09 16:46+1100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -80,6 +80,9 @@ msgid_plural "divisions"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "in the minority"
+msgstr ""
+
 msgid "large majority"
 msgstr ""
 
@@ -132,4 +135,7 @@ msgid "voted "
 msgstr ""
 
 msgid "voted %{vote_type}"
+msgstr ""
+
+msgid "with the majority"
 msgstr ""

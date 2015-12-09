@@ -81,6 +81,9 @@ msgstr[0] "голосування"
 msgstr[1] "голосування"
 msgstr[2] "голосувань"
 
+msgid "in the minority"
+msgstr "разом з меншістю"
+
 msgid "large majority"
 msgstr "абсолютною підтримкою"
 
@@ -137,3 +140,6 @@ msgstr "проголосував/ла "
 
 msgid "voted %{vote_type}"
 msgstr "проголосував/ла %{vote_type}"
+
+msgid "with the majority"
+msgstr "разом з більшістю"
