@@ -175,7 +175,7 @@ module DivisionsHelper
     sentence = if member.vote_on_division_without_tell(division) == "absent"
       link_to(member.name, member) + " " +  _("did not vote on the division") + " "
     else
-      member_voted_with(member, division) + ' on the division '
+      member_voted_with(member, division) + ': '
     end
     sentence += content_tag(:em, title)
     sentence
