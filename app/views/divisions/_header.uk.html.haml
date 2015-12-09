@@ -15,6 +15,7 @@
         = _("did not vote on the division")
         = content_tag(:em, yield(:title))
       - else
-        = member_voted_with(member, division) + ' on the division ' + content_tag(:em, yield(:title))
+        -# = member_voted_with(member, division) + ' on the division ' + content_tag(:em, yield(:title))
+        = ukrainian_division_title_with_member_position(member, division)
     - else
       = yield(:title)

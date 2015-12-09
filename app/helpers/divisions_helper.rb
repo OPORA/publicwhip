@@ -170,6 +170,11 @@ module DivisionsHelper
     end
   end
 
+  def ukrainian_division_title_with_member_position(member, division)
+    title = truncate(division.name, length: 180)
+    member_voted_with(member, division) + ' on the division ' + content_tag(:em, title)
+  end
+
   def member_vote(member, division)
     member.name_without_title + " voted #{vote_display(division.vote_for(member))}"
   end
