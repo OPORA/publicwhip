@@ -148,25 +148,33 @@ module DivisionsHelper
     end
 
     if !division.action_text.empty? && division.action_text[member.vote_on_division_without_tell(division)]
-      sentence += "voted ".html_safe + content_tag(:em, division.action_text[member.vote_on_division_without_tell(division)])
+      sentence += _("voted ").html_safe + content_tag(:em, division.action_text[member.vote_on_division_without_tell(division)])
     else
       # TODO Should be using whip for this calculation. Only doing it this way to match php
       # calculation
       ayenodiff = (division.votes.group(:vote).count["aye"] || 0) - (division.votes.group(:vote).count["no"] || 0)
       if ayenodiff == 0
         if member.vote_on_division_without_tell(division) != "absent"
-          sentence += "voted #{vote_display member.vote_on_division_without_tell(division)}"
+          sentence += _("voted %{vote_type}") % {vote_type: vote_display(member.vote_on_division_without_tell(division))}
         end
       elsif member.vote_on_division_without_tell(division) == "aye" && ayenodiff >= 0 || member.vote_on_division_without_tell(division) == "no" && ayenodiff < 0
-        sentence += "voted ".html_safe + content_tag(:em, "with the majority")
+        sentence += _("voted ").html_safe + content_tag(:em, _("with the majority") )
       elsif member.vote_on_division_without_tell(division) != "absent"
-        sentence += "voted ".html_safe + content_tag(:em, "in the minority")
+        sentence += _("voted ").html_safe + content_tag(:em, _("in the minority") )
       end
 
       if member.vote_on_division_without_tell(division) != "absent" && ayenodiff != 0
         sentence += " (#{vote_display member.vote_on_division_without_tell(division)})"
       end
       sentence
+    end
+  end
+
+  def ukrainian_member_voted_with(member, division)
+    if member.vote_on_division_without_tell(division) == "absent"
+      link_to(member.name, member) + " " +  _("did not vote on the division")
+    else
+      member_voted_with(member, division)
     end
   end
 
