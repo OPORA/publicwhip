@@ -72,11 +72,17 @@ msgstr "з"
 msgid "did not vote"
 msgstr "не голосував/ла"
 
+msgid "did not vote on the division"
+msgstr "відсутній/ня під час"
+
 msgid "division"
 msgid_plural "divisions"
 msgstr[0] "голосування"
 msgstr[1] "голосування"
 msgstr[2] "голосувань"
+
+msgid "in the minority"
+msgstr "разом з меншістю"
 
 msgid "large majority"
 msgstr "абсолютною підтримкою"
@@ -129,5 +135,11 @@ msgstr "Максимально голосує проти"
 msgid "very strongly for"
 msgstr "Максимально голосує за"
 
+msgid "voted "
+msgstr "проголосував/ла "
+
 msgid "voted %{vote_type}"
 msgstr "проголосував/ла %{vote_type}"
+
+msgid "with the majority"
+msgstr "разом з більшістю"
