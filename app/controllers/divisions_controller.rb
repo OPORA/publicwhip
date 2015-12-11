@@ -142,7 +142,7 @@ class DivisionsController < ApplicationController
       electorate = electorate_param
       # TODO Also ensure that the member is current on the date of this division
       member = Member.in_house(house).with_name(name).
-        where(constituency: electorate).first
+        find_by!(constituency: electorate)
       @member = member.person.member_who_voted_on_division(@division)
     end
     @members = Member.in_house(house).current_on(@division.date).
