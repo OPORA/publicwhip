@@ -157,11 +157,6 @@ class Member < ActiveRecord::Base
     party_object.long_name
   end
 
-  # Long version of party name ukr_version
-  def display_party_name_ukr
-    party_object.long_name.gsub(/( у Верховній Раді України| восьмого скликання)/,'')
-  end
-
   # Are they a member of a party that has a whip?
   def has_whip?
     party_object.has_whip?
