@@ -69,7 +69,7 @@ module MembersHelper
     text.html_safe + "."
   end
 
-  def display_name_ukr(name)
+  def ukrainian_party_display_name(name)
     name.gsub(/( у Верховній Раді України| восьмого скликання| партії Фракція)/,'')
   end
 end

@@ -20,7 +20,7 @@
                 -#партії
                 -# HACK: This gets the member's first faction, which is hopefully
                 -# the party they entered parliament on
-                = display_name_ukr(member.person.earliest_member.party)
+                = ukrainian_party_display_name(member.person.earliest_member.party)
               - else
                 -#області
                 %span.member-electorate= member.electorate
