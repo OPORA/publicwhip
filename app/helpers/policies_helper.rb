@@ -23,7 +23,7 @@ module PoliciesHelper
       end
     else
       text = ranges.find{|r| r.first.include?(policy_member_distance.agreement_fraction)}.second
-      "voted ".html_safe + content_tag(:strong, text.html_safe)
+      content_tag(:strong, text.html_safe)
     end
   end
 
