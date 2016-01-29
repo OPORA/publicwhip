@@ -1,0 +1,50 @@
+- set_meta_tags description: "Search for people, policies, and divisions on #{Settings.project_name}."
+
+- if @postcode && !@postcode_error
+  - content_for :title, "Representatives for postcode #{@postcode}"
+- elsif params[:query].blank?
+  - content_for :title, "Search"
+- else
+  - content_for :title, (@postcode && @postcode_error ? "Search results for: #{@postcode}" : "Search results for: #{params[:query]}")
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      - if @postcode && !@postcode_error
+        %h1.long-title
+          Choose from #{@mps.size.to_words} MPs that represent postcode #{@postcode}:
+      - else
+        %form.form-inline.search{action: search_path, name: "pw"}
+          %h1.label-heading
+            %label{for: "query"} Шукати депутатів, політики та голосування:
+          .input-group.col-sm-12.col-md-8.col-lg-7
+            %input.form-control#query{required: "required", type: "search", autosave: "#{Settings.project_name}", autofocus: (params[:query].blank? ? true : false), maxlength: "256", name: "query", value: "#{params[:query] if !params[:query].blank?}"}/
+            .input-group-btn
+              %input.btn.btn-primary{name: "button", type: "submit", value: "Пошук"}/
+
+- if @postcode && !@postcode_error
+  = render "members/members", members: @mps, house: nil
+- elsif @postcode_error
+  = render "home/no_search_results.html.haml", postcode: @postcode
+- elsif !params[:query].blank?
+  - if @mps.empty? && @divisions.empty? && @policies.empty?
+    = render "home/no_search_results.html.haml", postcode: nil
+
+  - if !@mps.empty?
+    %section.page-section#people
+      %h2= pluralize(@mps.count, "person")
+      = render "members/members", members: @mps, house: nil
+
+  - if !@policies.empty?
+    %section.page-section#policies
+      %h2= pluralize(@policies.count, "policy")
+      = render "policies", policies: @policies
+
+  - if !@divisions.empty?
+    %section.page-section#divisions
+      %h2= pluralize(@divisions.count, "division")
+      = render "divisions/divisions", member: @member, divisions: @divisions
+
+  %p
+    You could also try browsing the list of #{link_to "People", members_path},
+    #{link_to "Policies", policies_path}, or #{link_to "Divisions", divisions_path}.
