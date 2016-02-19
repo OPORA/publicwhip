@@ -13,7 +13,7 @@
     %h2
       Як
       "#{policy_agreement_summary_without_html(member.person.policy_person_distances.find_by(policy: policy))}"
-      була розроблена
+      працює
       -# How
       -# "#{policy_agreement_summary_without_html(member.person.policy_person_distances.find_by(policy: policy))}"
       -# is worked out
@@ -25,19 +25,19 @@
       менш важливі
       = Distance.possible_points[:same]
       #{n_("point", "points", Distance.possible_points[:same])},
-      а ще менш важливі голосування на яких депутат був відсутній отримують
+      а ще менш важливі голосування під час яких депутат був відсутній, отримують
       = Distance.possible_points[:absent]
       #{n_("point", "points", Distance.possible_points[:absent])}.
-      Під час важливих голосувань депутат отримую повні
+      Під час важливих голосувань депутат отримує повні
       = Distance.points[:samestrong]
       = n_("point", "points", Distance.points[:samestrong])
-      за голосування відповідно до політики,
+      за голосування на підтримку політики,
       = n_("point", "points", Distance.points[:differstrong])
       за голосування проти i
       = n_("point", "points", Distance.points[:absentstrong])
       за неголосування. В менш важливих голосуваннях депутат отримує
       = n_("point", "points", Distance.points[:same])
-      за голосування відповідно до політики,
+      за голосування на підтримку політики,
       = n_("point", "points", Distance.points[:differ])
       за голосування проти і
       = Distance.points[:absent]
@@ -46,7 +46,7 @@
 
     %p
       Після цього, цифри конвертуються в прості фрази на основі діапазону
-      значень в який потрапляє депутат.
+      значень, в який потрапляє голосування депутата.
 
     - policy_member_distance = member.person.policy_person_distances.find_or_initialize_by(policy: policy)
     %table.table
@@ -66,12 +66,12 @@
           %td &nbsp;
           %td &nbsp;
         %tr
-          %td Голосувань відповідно політики
+          %td Голосувань «за» політику
           %td= policy_member_distance.nvotessamestrong
           %td= policy_member_distance.votes_same_strong_points
           %td= policy_member_distance.possible_same_strong_points
         %tr
-          %td Голосувань проти політики
+          %td Голосувань «проти» політики
           %td= policy_member_distance.nvotesdifferstrong
           %td= policy_member_distance.votes_differ_strong_points
           %td= policy_member_distance.possible_differ_strong_points
@@ -89,12 +89,12 @@
           %td &nbsp;
           %td &nbsp;
         %tr
-          %td Голосувань відповідно політики
+          %td Голосувань «за» політику
           %td= policy_member_distance.nvotessame
           %td= policy_member_distance.votes_same_points
           %td= policy_member_distance.possible_same_points
         %tr
-          %td Голосувань проти політики
+          %td Голосувань «проти» політики
           %td= policy_member_distance.nvotesdiffer
           %td= policy_member_distance.votes_differ_points
           %td= policy_member_distance.possible_differ_points
@@ -118,9 +118,10 @@
         %tr
           %td{colspan: "4"}
             %p
-              *Виконуючи інші обов'язки депутат не завжди має можливість
-              голосувати - це не завжди відображає те, що він утримується.
-              Внаслідок цього відсутність на менш важливих голосуваннях робить різницю диспропорційно малою.
+              *Виконуючи інші обов'язки, депутат не завжди має можливість голосувати. 
+              Тому відсутність не завжди свідчить про те, що він утримується від голосування за політику. 
+              Внаслідок цього, відсутність на менш важливих голосуваннях робить різницю диспропорційно малою і мало 
+              впливає на підрахунок голосувань.
     %p
       Узгоджений розрахунок = Бали депутата / Балів всього
       \= #{policy_member_distance.total_points} / #{policy_member_distance.possible_total_points}
@@ -140,3 +141,5 @@
           = fraction_to_percentage_display(range.first.max)
           означатиме
           "#{range.second}"
+        %li
+          У разі відсутності депутата та/або його неголосування - "Ніколи не голосує"
