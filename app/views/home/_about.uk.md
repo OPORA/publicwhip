@@ -14,13 +14,13 @@
 
 Портал “<%= inline_project_name %>” був розроблений [OpenAustralia Foundation](https://www.openaustraliafoundation.org.au), незалежною позапартійною неприбутковою організацією. Цей портал базується на ідеї та платформі австралійського проекту [They Vote For You](https://theyvoteforyou.org.au), який, у свою чергу, створений на основі британського сайту [UK Public Whip site](http://www.publicwhip.org.uk/) (започаткований Francis Irving та Julian Todd  у 2003 році). Велика подяка [National Democratic Institute (NDI)](https://www.ndi.org/), чиї пожертви зробили можливим розвиток української версії цього міжнародного проекту.
 
-“<%= inline_project_name %>” був створений партнерами Громадської мережі ОПОРА Henare Degan, Matthew Landauer, Luke Bacon, Katherine Szuminska за координації та консультацій Mario Mitre та Jean-Noé Landry. Адаптація сайту до українського контексту та його переклад з англійської здійснений Юрієм Лісовським та Оленою Рибій.
+“<%= inline_project_name %>” був створений партнерами Громадської мережі ОПОРА Henare Degan, Matthew Landauer, Luke Bacon, Katherine Szuminska за координації та консультацій Mario Mitre та Jean-Noé Landry. Адаптація сайту до українського контексту та його переклад з англійської виконані Юрієм Лісовським, Оленою Рибій та Надією Вірною. Забезпечення функціонування, його наповнення та поновлення здійснюють  Надія Вірна та Геннадій Кондратенко.
 
 <h2 class="h3" id="contribute">Ти можеш допомогти</h2>
 
 <%= inline_project_name %> - це відкритий проект. Це означає, що усі бажаючі можуть долучитися до підтримки та наповнення цього сайту.
 
-Ти можеш допомогти нам зробити цей сайт кращим: запропонуй власну політику та напиши нам на скриньку [info@opora.org.ua.](mailto:<%= Settings.contact_email %>) або [обговорюючи уже існуючі політики](/policies).
+Ти можеш допомогти нам зробити цей сайт кращим: запропонуй власну політику та напиши нам на скриньку [info@opora.org.ua.](mailto:<%= Settings.contact_email %>) або [переглянувши політики, які вже існують](/policies).
 
 <h2 class="h3" id="contact">Контакти</h2>
 
