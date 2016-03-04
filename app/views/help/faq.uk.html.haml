@@ -21,6 +21,8 @@
       %li= link_to "Що таке Політики та як це працює?", "#policies"
       %li= link_to "Як визначити, підтримує депутат якусь із політик чи ні?", "#stance"
       %li= link_to "Що таке “Проти фракції”?", "#rebellion"
+      %li= link_to "Що таке “Так” і “Так (тверде)”?", "#age"
+      %li= link_to "Що таке “Ні” і “Ні (тверде)”?", "#no"
       %li= link_to 'Що таке відвідуваність?', "#attendance"
 
     %h2#how Як працює сайт #{inline_project_name}?
@@ -40,6 +42,12 @@
 
     %h2#stance Як визначити, підтримує депутат якусь із політик чи ні?
     = render "help/faq/stance"
+
+    %h2#age Що таке “Так” і “Так (тверде)”?
+    = render "help/faq/age"
+
+    %h2#no Що таке “Ні” і “Ні (тверде)”?
+    = render "help/faq/no"
 
     %h2#rebellion Що таке “Проти фракції”?
     = render "help/faq/rebel"
