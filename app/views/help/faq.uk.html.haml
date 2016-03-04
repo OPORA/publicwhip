@@ -10,12 +10,12 @@
     %ul
       %li
         = link_to "#how" do
-          Як працює проект #{inline_project_name}?
-      %li= link_to "Який часовий період він покриває?", "#timeperiod"
+          Як працює сайт #{inline_project_name}?
+      %li= link_to "За який час і про що дані?", "#timeperiod"
 
     %ul
       %li= link_to "Що таке Голосування", "#division"
-      %li= link_to "Чому не всі голосування мають описове узагальнення?", "#summaries"
+      %li= link_to "Чому не всі голосування мають опис?", "#summaries"
 
     %ul
       %li= link_to "Що таке Політики та як це працює?", "#policies"
@@ -23,16 +23,16 @@
       %li= link_to "Що таке “Проти фракції”?", "#rebellion"
       %li= link_to 'Що таке відвідуваність?', "#attendance"
 
-    %h2#how Як працює проект #{inline_project_name}?
+    %h2#how Як працює сайт #{inline_project_name}?
     = render "help/faq/how_does_it_work"
 
-    %h2#timeperiod Який часовий період він покриває?
+    %h2#timeperiod За який час і про що дані?
     = render "help/faq/time_period"
 
     %h2#division Що таке Голосування
     = render "help/faq/division"
 
-    %h2#summaries Чому не всі голосування мають описове узагальнення?
+    %h2#summaries Чому не всі голосування мають опис?
     = render "help/faq/summaries"
 
     %h2#policies Що таке Політики та як це працює?
