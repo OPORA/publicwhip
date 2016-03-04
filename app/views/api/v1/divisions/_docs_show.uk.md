@@ -5,12 +5,12 @@
 <% end %>
 
 <% if current_user %>
-Наприклад
+Наприклад, запит
 
-<pre>GET <%= link_to api_v1_division_url(format: "json", id: 2788, key: current_user.api_key), api_v1_division_url(format: "json", id: 2788, key: current_user.api_key) %></pre>
+<pre>GET <%= link_to api_v1_division_url(format: "json", id: 4896, key: current_user.api_key), api_v1_division_url(format: "json", id: 4896, key: current_user.api_key) %></pre>
 <% end %>
 
-g Це повертає всю корисну і деталізовану інформації, що включає:
+повертає всю корисну і деталізовану інформацію, що включає:
 
 Параметр           | Опис
 ------------------ | -----------------------------------------------------------
@@ -19,13 +19,13 @@ g Це повертає всю корисну і деталізовану інф
 `name`             | Скорочена назва
 `date`             | Дата в форматі `yyyy-mm-dd`
 `number`           | Перше голосування в визначений день. Кожне наступне голосування пронумеровано відповідно.
-`clock_time`       | Час голосування в форматі `hh:mm AM` або `hh:mm PM` чи `null` якщо не доступний
+`clock_time`       | Час голосування в форматі `hh:mm AM` або `hh:mm PM`, чи `null`, якщо недоступний
 `aye_votes`        | Кількість депутатів, які проголосували “ЗА”
-`no_votes`         | Кількість депутатів, які проголосували “Проти”
-`possible_turnout` | Кількість депутатів, які потенційно могли проголосувати
-`rebellions`       | Кількість голосів, які були віддані проти лінії фракції
-`edited`           | `true` якщо опис голосування був відредагований
-`summary`          | Якщо `edited` є `false` this is a bit of text from the Hansard near to where the division took place. If `edited` is `true` then this is the latest version of the summary text written by contributors. It is formatted in Markdown.
-`votes`            | An array of the votes cast by the members in this division
-`policy_divisions` | An array of policies that are connected to this division including how they voted
+`no_votes`         | Кількість депутатів, які проголосували “ПРОТИ”
+`possible_turnout` | Кількість діючих депутатів на момент голосування
+`rebellions`       | Загальна сума голосів, яка проти ліній фракцій
+`edited`           | `true`, якщо опис голосування був відредагований
+`summary`          | Якщо `edited` є `true`, тоді це остання версія опису. Вона відформатована в Markdown
+`votes`            | Сукупність голосів учасників голосування. Відображаються тільки ті депутати, які брали участь в цьому голосуванні
+`policy_divisions` | Сукупність політик, до яких підв'язане голосування з вказанням підтримки чи непідтримки політики ("Так", "Так тверде", "Ні", "Ні тверде")
 `bills`            | Сукупність законопроектів, які пов'язані з голосуванням
