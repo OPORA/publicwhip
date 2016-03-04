@@ -1,0 +1,20 @@
+- content_for :title, 'Проект Політики'
+- set_meta_tags description: "A list of draft policies on #{Settings.project_name}. Draft policies are those that are not yet complete or consistent enough to display publicly."
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      %nav.header-actions.col-md-3
+        =link_to "Нова політика", new_policy_path, class: "link-policy-new btn btn-primary btn-xs"
+      %h1= yield :title
+      %p.lead
+        Проект Політики — це політики, які ще не завершені або не повністю наповнені для того, щоб бути опублікованими. Ти можеш допомогти,
+        редагуючи, додаючи голосування, описи, тим самим покращуючи їх
+
+%p= link_to "← Опубліковані Політики", policies_path
+
+- if @policies
+  = render "policies_list", policies: @policies
+- else
+  %p
+    Проектів Політик ще немає #{link_to "Створи першу", new_policy_path}
