@@ -1,0 +1,26 @@
+- content_for :title, "Редагування “#{@policy.name}”"
+
+.page-header.row
+  %nav.header-actions.col-md-3
+    = link_to "Історія редагувань", history_policy_path(@policy)
+  %h1.col-md-9
+    = yield :title
+
+%h2Назва політики і текст
+
+= simple_form_for @policy do |f|
+  = f.error_notification
+  .form-group= f.input :name, label: 'Якщо ти за'
+  .form-group= f.input :description, label: 'то ти віриш, що',
+  hint: 'З цього тексту має бути  зрозуміло, яка ідея поєднує різні законопроекти і голосування, що підв’язані до Політики'
+  .checkbox
+    %label
+      %input#provisional{name: "provisional", type: "checkbox", value: "provisional", checked: @policy.provisional?}
+      Проект політики
+    %p.help-block
+      'Проект' означає, що Політика остаточно ще не сформована
+  %input.submit-policy.btn.btn-primary{accesskey: "S", name: "submit", type: "submit", value: "Зберегти назву та техт"}/
+  = link_to "Відмінити", :back, class: "btn btn-default"
+
+%h2 Голосування, що відносяться до Політики
+= render 'division_edit_instructions'
