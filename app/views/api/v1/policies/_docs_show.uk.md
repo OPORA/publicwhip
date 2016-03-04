@@ -5,18 +5,18 @@
 <% end %>
 
 <% if current_user %>
-For example
+Наприклад, запит
 
 <pre>GET <%= link_to api_v1_policy_url(format: "json", id: 1, key: current_user.api_key), api_v1_policy_url(format: "json", id: 1, key: current_user.api_key) %></pre>
 <% end %>
 
-Це повертає всі види корисної деталізованої інформації, що включают:
+запит видає всі види корисної деталізованої інформації, що включають:
 
 Параметр             | Опис
 -------------------- | ------------------------------------------------------------------------
-`id`                 | Унікальний визначник для голосування. Використовуй id, щоб отримати більше інформації про політику.
+`id`                 | Унікальний визначник для голосування. Використовуй `id`, щоб отримати більше інформації про політику
 `name`               | Коротка назва політики
-`description`        | Більше інформації про те, що означає політика
-`provisional`        | `true` or `false`. A provisional policy isn't yet "complete" and isn't visible by default in comparisons with people
-`policy_divisions`   | Сукупність олосувань, які включені до цієї політики. Кожне голосування має відповідне `vote` яке може бути `strong` і робить голосування дуже важливим
-`people_comparisons` | An array of people who could have voted on this division and their calculated `agreement` score in range from 0 to 100. `voted` says whether they ever vote on a division from this policy.
+`description`        | Більше інформації про цю політику, що означає політика
+`provisional`        | `true` або `false`. Це проект політики, яка ще не завершена і не відображається за замовчуванням.
+`policy_divisions`   | Сукупність голосувань, які включені до цієї політики. Кожне голосування має відповідне `vote`, яке може бути `strong` і робить голосування дуже важливим
+`people_comparisons` | Сукупність політик, за який депутат міг голосувати і їх підрахований `agreement` бал в проміжку від 0 до 100. `voted` показує, чи вони колись голосували за законопроект з цієї політики.
