@@ -1,29 +1,29 @@
 %p
   На порталі
   = inline_project_name
-  зібрані всі голосування VIII скликання Ради, тобто з листопада 2014 року.
-  Нові голосування додаються одразу після їх публікації на офіційному порталі
-  Верхової Ради. Ми не надаємо гарантії, що ці дані офіційні та фінальні,
+  зібрані всі голосування народних депутатів VIII скликання Ради, починаючи листопада 2014 року. Нові голосування
+  додаються одразу після їхньої публікації на офіційному порталі Верхової Ради. Ми не надаємо гарантії, що
+  ці дані є фінальними,
   #{link_to 'тому повідом нас', about_path(anchor: 'contact')},
   якщо знайдеш якісь фактологічні помилки.
 %p
-  Проект охоплює
+  Сайт містить інформацію про голосування
   %strong= number_with_delimiter(Member.select(:person_id).distinct.count)
   народних депутати з
   %strong= number_with_delimiter(Member.select(:party).distinct.count)
   фракцій та
-  2 депутатських груп, які проголосували вже
+  2 депутатських груп, На цей момент, вони проголосували
   %strong= number_with_delimiter(Division.count)
-  законопроектів. Загалом охоплено
+  законопроектів. #{inline_project_name} зібрав
   %strong= number_with_delimiter(Vote.count)
-  поданих голосів депутатів,
+  голосувань депутатів,
   %strong= number_with_delimiter(Member.joins(:member_info).sum(:rebellions).to_i)
-  були проти більшості їхньої фракції/групи, що дає можливість порахувати
-  рейтинг голосувань проти лінії фракцій/груп як
+  з яких були проти більшості їхньої фракції/групи, це дає можливість вирахувати рейтинг
+  голосувань проти лінії фракцій/груп як
   <strong>#{Member.joins(:member_info).sum(:rebellions) == 0 ? "0%" : "#{number_with_precision((Member.joins(:member_info).sum(:rebellions).to_f / Vote.count.to_f * 100), precision: 2, strip_insignificant_zeros: true)}%"}</strong>.
 %p
   %strong= User.count
-  авторів створили
+  зареєстрованих користувачів створили
   %strong= Policy.count
   політик та підсумували
   %strong= Division.edited.count
