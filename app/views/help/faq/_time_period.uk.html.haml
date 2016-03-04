@@ -12,14 +12,14 @@
   народних депутати з
   %strong= number_with_delimiter(Member.select(:party).distinct.count)
   фракцій та
-  2 депутатських груп, На цей момент, вони проголосували
+  2 депутатських груп. Наразі вони проголосували
   %strong= number_with_delimiter(Division.count)
   законопроектів. #{inline_project_name} зібрав
   %strong= number_with_delimiter(Vote.count)
   голосувань депутатів,
   %strong= number_with_delimiter(Member.joins(:member_info).sum(:rebellions).to_i)
-  з яких були проти більшості їхньої фракції/групи, це дає можливість вирахувати рейтинг
-  голосувань проти лінії фракцій/груп як
+  з яких були проти більшості їхньої фракції/групи. Це дає можливість вирахувати рейтинг
+  голосувань проти лінії фракцій/груп, як
   <strong>#{Member.joins(:member_info).sum(:rebellions) == 0 ? "0%" : "#{number_with_precision((Member.joins(:member_info).sum(:rebellions).to_f / Vote.count.to_f * 100), precision: 2, strip_insignificant_zeros: true)}%"}</strong>.
 %p
   %strong= User.count
