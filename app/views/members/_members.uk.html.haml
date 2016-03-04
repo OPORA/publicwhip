@@ -15,7 +15,7 @@
                 - if !member.currently_in_parliament?
                   Former
                 = ukrainian_party_display_name_first(member.party_name.gsub(/Фракція/, ''))
-              обрано
+              , обрано
               - if member.ukranian_list_mp?
                 -#партії
                 -# HACK: This gets the member's first faction, which is hopefully
