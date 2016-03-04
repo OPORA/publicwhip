@@ -27,7 +27,7 @@
       %li= link_to "Деталі щодо політики", "#policy"
       %li= link_to "Всі голосування", "#divisions"
       %li= link_to "Деталі щодо голосувань", "#division"
-      #%li= link_to "Legacy API", "#legacy"
+      -#%li= link_to "Legacy API", "#legacy"
 
 - if current_user.nil?
   %h2#key Отримати ключ до API
@@ -94,9 +94,9 @@
   .col-md-2
     = link_to "Редагувати документ", "https://github.com/openaustralia/publicwhip/tree/test/app/views/api/v1/divisions/_docs_show.md", class: "btn btn-default"
 
-#%h2#legacy Legacy API
-#.row
-#  .col-md-10
-#    = render "legacy_api"
-#  .col-md-2
-#    = link_to "Редагувати документ", "https://github.com/openaustralia/publicwhip/tree/test/app/views/help/_legacy_api.md", class: "btn btn-default"
+-#%h2#legacy Legacy API
+-#.row
+-#  .col-md-10
+-#    = render "legacy_api"
+-#  .col-md-2
+-#    = link_to "Редагувати документ", "https://github.com/openaustralia/publicwhip/tree/test/app/views/help/_legacy_api.md", class: "btn btn-default"
