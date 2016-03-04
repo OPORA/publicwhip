@@ -1,0 +1,43 @@
+- content_for :title, 'Створити нову політику'
+
+.page-header
+  %h1= yield :title
+
+  %p.lead
+    Додай нову політику, написавши два твердження.<br />
+    Пиши опис просто, щоб можна було легко зрозуміти, а також політично незаангажовано
+
+
+.row
+  .col-md-8
+    - unless @policy.errors.any?
+      %button{id: 'tips-toggler', type: 'button', class: 'btn btn-link btn-sm btn-lone-link', data: {toggle: 'collapse', target: '#tips'}}
+        Корисні поради для створення політик
+      #tips.collapse.alert.alert-info
+        = render "policy_authoring_tips"
+
+
+    = simple_form_for @policy do |f|
+      = f.error_notification
+      = f.input :name, label: 'Якщо ти за', placeholder: 'за створення сприятливого середовища для ІТ-бізнесу',label_html: { class: 'h4' }
+      %p.small.help-block  Заверши речення, надавши короткий, конкретний опис
+
+      = f.input :description, label: 'ти віриш, що', placeholder: 'парламент повинен прийняти закони, які полегшують ведення бізнесу в сфері ІТ, зокрема надання податкових пільг та канікул', input_html: {rows: 6},label_html: { class: 'h4' }
+      %p.small.help-block Опиши переконання, яке має депутат, який підтримує Політику
+
+      = render "new_policy_outro"
+
+      %ul
+        %li
+          Приватність &mdash;
+          Створивши політику, вона буде закріплена за тобою
+          %b= current_user.name
+          як за автором
+        %li
+          Ліцензування &mdash;
+          Ти згідний/на, що все, що ти створюєш на цьому сайті підпадає під Creative Commons Attribution License
+          = link_to "Чому?", "#policies_license", data: {toggle: "collapse"}
+      .alert.alert-info#policies_license.collapse
+        = render "help/faq/policies_license"
+      = f.button :submit, class: 'btn-primary submit-policy', value: 'Створити Політику'
+      = link_to "Відмінити", :back, class: "btn btn-default"
