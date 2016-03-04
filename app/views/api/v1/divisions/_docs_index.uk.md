@@ -4,23 +4,23 @@
 <pre>GET <%= api_v1_divisions_url(format: "json", key: "api_key2").gsub("api_key2", "[api_key]") %></pre>
 <% end %>
 
-This returns basic information about the **most recent 200** divisions including
+Це повертає базову інформацію про **останні 200 голосувань,** що включають:
 
-Parameter          | Description
+Параметр           | Опис
 ------------------ | -----------------------------------------------------------
-`id`               | A unique identifier for this division. Use the `id` to get more information about this division
+`id`               | Унікальний визначник для голосування. Використовуй `id`, щоб отримати більше інформації про це голосування. 
 `house`            | Whether this division took place in the House of Representatives or the Senate
-`name`             | Short name
-`date`             | Date in the format `yyyy-mm-dd`
-`number`           | The first division on a particular day and in a particular house is 1. Each following division is numbered consecutively
-`clock_time`       | The time of the division in the format `hh:mm AM` or `hh:mm PM` or `null` if not available
-`aye_votes`        | The number of people who voted "aye"
-`no_votes`         | The number of people who voted "no"
+`name`             | Скорочена назва
+`date`             | Дата в форматі `yyyy-mm-dd`
+`number`           | Перше голосування в визначений день. Кожне наступне голосування пронумеровано відповідно. 
+`clock_time`       | Час голосування в форматі `hh:mm AM` або `hh:mm PM` чи `null` якщо не доступний
+`aye_votes`        | Кількість депутатів, які проголосували “ЗА”
+`no_votes`         | Кількість депутатів, які проголосували “Проти”
 `possible_turnout` | The number of people who could potentially have voted based on the current number of members
 `rebellions`       | The number of votes that went against the majority vote of their party
-`edited`           | `true` if the summary of the division has been edited
+`edited`           | `true` якщо опис голосування був відредагований
 
-To get more results or divisions within a particular date range you can do
+Щоб отримати більше результатів та голосувань за певну дату, ти можеш 
 
 <% if current_user %>
 <pre>GET <%= link_to api_v1_divisions_url(format: "json", start_date: "2014-08-01", end_date: "2014-09-01", house: "rada", key: current_user.api_key), api_v1_divisions_url(format: "json", start_date: "2014-08-01", end_date: "2014-09-01", house: "senate", key: current_user.api_key) %></pre>
