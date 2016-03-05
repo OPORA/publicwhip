@@ -1,4 +1,4 @@
-- content_for :title, I18n.t('.devise.sessions.new.sign_in')
+- content_for :title, I18n.t('.devise.sessions.new.sign_in', :default => "Sign in")
 
 .thin-page
   %h1.long-title= yield :title
@@ -7,16 +7,16 @@
     = f.error_notification
 
     .form-group= f.input :email, as: :email, autofocus: true
-    .form-group= f.input  :password, as: :password, :label => I18n.t('activerecord.attributes.user.password')
+    .form-group= f.input  :password, as: :password, :label => I18n.t('activerecord.attributes.user.password', :default => "Password")
 
     - if devise_mapping.rememberable?
       .checkbox
         %label
           = f.check_box :remember_me
-          #{I18n.t('activerecord.attributes.user.remember_me')}
+          #{I18n.t('activerecord.attributes.user.remember_me', :default => "Remember me")}
 
-    = f.submit "#{I18n.t('devise.sessions.new.sign_in')}", class: "btn btn-primary btn-wide"
+    = f.submit "#{I18n.t('devise.sessions.new.sign_in', :default => "Log in")}", class: "btn btn-primary btn-wide"
 
   %ul.form-secondary.nav.nav-pills
-    %li= link_to "#{I18n.t('devise.registrations.new.sign_up')}", new_registration_path(resource_name), class: "btn-xs"
-    %li= link_to "#{I18n.t('devise.passwords.new.forgot_your_password')}", new_password_path(resource_name), class: "btn-xs"
+    %li= link_to "#{I18n.t('devise.registrations.new.sign_up', :default =>"Sign up for a new account")}", new_registration_path(resource_name), class: "btn-xs"
+    %li= link_to "#{I18n.t('devise.passwords.new.forgot_your_password', :default =>"Forgotten your password?")}", new_password_path(resource_name), class: "btn-xs"
