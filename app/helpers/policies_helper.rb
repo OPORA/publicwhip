@@ -166,7 +166,6 @@ module PoliciesHelper
   end
 
   def policy_division_version_sentence(version, options)
-
     actions = {"create" => "Added", "destroy" => "Removed", "update" => "Changed"}
     vote = policy_division_version_vote(version)
     division = policy_division_version_division(version)
