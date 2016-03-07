@@ -52,7 +52,7 @@
                   Відправити
                 %span.glyphicon.glyphicon-search
 
-        - if user_signed_in?
+
           %ul.account-nav.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li.dropdown
@@ -65,9 +65,9 @@
                   %li.divider
                   %li= link_to "Вихід", destroy_user_session_path, title: "Make your browser forget that you are logged into #{Settings.project_name} as #{current_user.name || current_user.email}", method: :delete
             - else
-              %li= link_to "Log in", new_user_session_path, title: "Log in to your account"
+              %li= link_to "Вхід", new_user_session_path, title: "Log in to your account"
               -if !current_page?(new_user_registration_path)
-                %li= link_to "Sign up", new_user_registration_path, title: "Create an account to help improve this resource", class: "link-signup"
+                %li= link_to "Реїстрація", new_user_registration_path, title: "Create an account to help improve this resource", class: "link-signup"
 
     = render "layouts/bootstrap_flash"
     = yield :history_notice
