@@ -68,7 +68,12 @@ module PoliciesHelper
       if version.changeset.has_key?("description")
         description1 = version.changeset["description"].first
         description2 = version.changeset["description"].second
-        changes << "Description changed from " + quote(description1) + " to " + quote(description2)
+        if I18n.locale == :uk
+          changes << "Опис змінено з " + quote(description1) + " на " + quote(description2)
+        else
+          changes << "Description changed from " + quote(description1) + " to " + quote(description2)
+        end
+
       end
 
       if version.changeset.has_key?("private")
@@ -161,6 +166,7 @@ module PoliciesHelper
   end
 
   def policy_division_version_sentence(version, options)
+
     actions = {"create" => "Added", "destroy" => "Removed", "update" => "Changed"}
     vote = policy_division_version_vote(version)
     division = policy_division_version_division(version)

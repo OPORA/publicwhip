@@ -1,0 +1,13 @@
+- content_for :title, "Опис парламентських даних"
+- set_meta_tags description: "Як допомогти #{Settings.project_name} в пошуці політик та голосувань."
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      %h1= yield :title
+      %p.lead
+        Як допомогти #{inline_project_name} в пошуці, опису політик та голосувань
+
+.row
+  .col-md-8
+    = render "help/research_copy"

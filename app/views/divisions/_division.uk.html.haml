@@ -1,5 +1,5 @@
 %li
-  = link_to division, class: 'object-item panel-link', title: "See full division page for #{truncate(division.name, length: 180)}." do
+  = link_to division, class: 'object-item panel-link', title: "Переглянь повністю всю сторінку #{truncate(division.name, length: 180)}.".html_safe do
     %article.division-item{class: division_edit_status_class(division) + " " + division_outcome_class(division)}
       .division-edit-notice.pull-right.text-muted
         - if division.edited?
@@ -39,7 +39,7 @@
                 = division.rebellions
                 = n_("rebellion", "rebellions", division.rebellions)
               - else
-                Ніколи не йшов проти лінії фракції(100% фракційна дисципліна)
+                Ніколи не йшов проти фракції(100% фракційна дисципліна)
           %span.division-attendance.object-data-attendance
             - if @party
               = fraction_to_percentage_display(division.attendance_fraction_in_party(@party))

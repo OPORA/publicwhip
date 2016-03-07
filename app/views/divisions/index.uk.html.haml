@@ -15,8 +15,9 @@
           %small= divisions_period
 
       %p.lead
-        Завдяки цим голосуванням народні обранці приймають закони, які впливають на всіх нас.
-        = link_to "Дізнатися більше...", help_faq_path(anchor: "division")
+        Голосуючи, народні депутати приймають закони та постанови, які впливають на всіх нас
+      %p
+        = link_to "Дізнатися більше", help_faq_path(anchor: "division")
 
 - if @divisions.any?
   = render "divisions_chooser", rdisplay: @rdisplay, party: @party, house: @house, parties: @parties

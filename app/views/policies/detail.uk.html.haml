@@ -1,0 +1,7 @@
+= render 'page_header', policy: @policy
+
+%p
+  = link_to "← Основний перелік голосувань", policy_path(@policy, anchor: 'divisions'), title: "Показує основний перелік голосувань щодо політики"
+
+= render 'vote_table_leader', policy: @policy
+= render 'detailed_votes', member: @member, policy: @policy

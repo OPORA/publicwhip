@@ -1,0 +1,15 @@
+- content_for :title, @user.name
+
+%h2
+  - if @you
+    Історія твоїх дій на #{inline_project_name}
+  - else
+    Останній зміни
+    = @user.name
+
+- if @history.empty?
+  %p  Без змін поки що :)
+- else
+  = render partial: "layouts/history_list"
+
+%p Дивись інші #{link_to 'останні зміни', history_path}.

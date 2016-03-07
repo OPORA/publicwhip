@@ -1,0 +1,49 @@
+%p
+  %span.ptitle Корисні посилання для дослідження
+%ul
+  %li= link_to "Законопроекти, зареєстровані у Верховній Раді України", "http://w1.c1.rada.gov.ua/pls/zweb2/webproc2", target: "_blank"
+  %li= link_to "Порядок денний сесії Верховної Ради України", "http://static.rada.gov.ua/zakon/new/WR/pd_index.html", target: "_blank"
+  %li= link_to "Електронний протокол", "http://w1.c1.rada.gov.ua/pls/radan_gs09/ns_el_h", target: "_blank"
+  %li= link_to "Народні депутати Верховної Ради України", "http://w1.c1.rada.gov.ua/pls/site2/p_deputat_list", target: "_blank"
+  %li= link_to "Законодавство України", "http://zakon3.rada.gov.ua/laws", target: "_blank"
+  %li= link_to "Сайт Громадянської мережі ОПОРА про парламент", "http://rada.oporaua.org/", target: "_blank"
+
+- if markdown
+  %p
+    Використовуй
+    = link_to "Markdown", "https://guides.github.com/features/mastering-markdown/", target: "_blank"
+    для форматування тексту
+- else
+  %p
+    %span.ptitle> Formatting codes
+    \. You can use the
+    following to mark paragraphs, lists and so on.
+
+  %ul
+    %li
+      %code ''italic''
+      \-
+      %em italic
+    %li
+      %code [http://example.com A link]
+      \-
+      = link_to "link", "http://example.com"
+    %li
+      %code * A point
+      \- bulleted list item
+    %li
+      %code An idea[1]
+      \- link to a footnote
+    %li
+      %code * [1] Ideas are good
+      \- footnote
+    %li
+      %code @A comment
+      \- comments aren't displayed
+    %li
+      %code @MP voted aye to say that little ponies are great
+      \- puts this text on the motion page "[MP Name] voted to say that
+      little ponies are great"
+    %li
+      %code @MP voted no
+      \- does it for MPs that voted no

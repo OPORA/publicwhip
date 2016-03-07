@@ -1,0 +1,30 @@
+= render "header", division: @division
+
+%h2 Пов'язані Політики
+
+= render "current_policies_list", division: @division, display: @display
+
+%h3 Створи нове з'єднання
+
+- if user_signed_in?
+  = simple_form_for @policy_division, url: create_policy_division_path(division_params(@division)), html: {class: 'form-inline policyvote'} do |f|
+    %legend.small
+      %p Доєднай це голосування до відповідної політики.
+      %p Будь-ласка, прочитай опис політики та голосування перед тим, як оновлювати список.
+    - if @policy_division.errors.any?
+      .alert.alert-danger= @policy_division.errors.full_messages.to_sentence
+    %fieldset
+      %label Депутати, які за
+      = f.select :policy_id, nil, {prompt: "Обери відповідну політику"}, size: 1, class: "selectpicker", data: {width: "auto", "live-search" => true} do
+        %optgroup(label="Проекти політик")
+          = options_from_collection_for_select(Policy.provisional.order(:name), "id", "name", disabled: @division.policies.map{|p| p.id})
+        %optgroup(label="Опубліковані політики")
+          = options_from_collection_for_select(Policy.published.order(:name), "id", "name", disabled: @division.policies.map{|p| p.id})
+      %label проголосували б
+      = vote_select(f, nil, prompt: "Обери голосування")
+      %p
+    = f.submit "Пов'язати з політикою", class: 'btn btn-primary'
+- else
+  %p
+    = link_to "Авторизуйся,", new_user_session_path, title: "Авторизація для редагування з’єднання"
+    щоб редагувати з’єднання політик.
