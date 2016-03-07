@@ -67,7 +67,7 @@
             - else
               %li= link_to "Вхід", new_user_session_path, title: "Log in to your account"
               -if !current_page?(new_user_registration_path)
-                %li= link_to "Реїстрація", new_user_registration_path, title: "Create an account to help improve this resource", class: "link-signup"
+                %li= link_to "Реєстрація", new_user_registration_path, title: "Create an account to help improve this resource", class: "link-signup"
 
     = render "layouts/bootstrap_flash"
     = yield :history_notice
