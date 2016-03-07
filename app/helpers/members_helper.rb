@@ -55,15 +55,23 @@ module MembersHelper
 
   def member_type_party_place_date_sentence(member)
     text = member_type_party_place_sentence(member)
-    if member.currently_in_parliament?
-      text += (" " +
-        content_tag(:span, _("since %{date}") % {date: member.since})).html_safe + " року"
+      if member.currently_in_parliament?
+      if I18n.locale == :uk
+        text += (" " +
+        content_tag(:span, _("since %{date}") % {date: member.since}) + " року").html_safe
+      else
+        text += (" " +
+        content_tag(:span, _("since %{date}") % {date: member.since}, class: 'member-period')).html_safe
+      end
     else
-      text += (" " +
+      if I18n.locale == :uk
+        text += (" " +
         content_tag(:span, "#{member.since} – #{member.until}")).html_safe
+      else
+        text += (" " +
+        content_tag(:span, "#{member.since} – #{member.until}", class: 'member-period')).html_safe
+      end
     end
-    text
-  end
 
   def member_history_sentence(member)
     text = "Before being #{member_type_party_place_sentence_without_former(member)}, #{member.name_without_title} was "
