@@ -1,0 +1,25 @@
+%h1.unstyled-heading
+  %strong
+    = link_to capitalise_initial_character(@policy.name), policy_path(@policy, only_path: false), class: "heading-object-link"
+
+- if @version.kind_of?(WikiMotion)
+  %p
+    Змінено текст опису відповідного голосування
+    = link_to @version.division.name, division_path(@version.division, Rails.application.config.action_mailer.default_url_options.merge(only_path: false))
+- else
+  = version_sentence(@version, Rails.application.config.action_mailer.default_url_options.merge(only_path: false))
+
+%p.small.object-primary
+  = version_author_link(@version, only_path: false)
+  %span.text-muted.small
+    = @version.created_at.strftime("%l:%M%p - %d %b %Y")
+
+%br
+
+.text-muted
+  %p.small
+    Зайди на
+    = link_to "сторінку політики,", policy_path(@policy, only_path: false), class: "small"
+    щоб відписатися від її оновлень.
+  %p.small
+    = link_to "Дивись всі свої підписки.", user_subscriptions_path(@user, only_path: false), class: "small"
