@@ -1,0 +1,19 @@
+- content_for :title, 'Повторно надіслати лист-підтвердження'
+
+.thin-page
+  %h1.long-title= yield :title
+
+  %p Ми надішлемо тобі листа, щоб підтвердити адресу
+
+  = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+    - if f.error :confirmation_token
+      .alert.alert-danger= "Підтвердження недійсне. Напиши свою електронну адресу і ми надішлемо тобі інше підтвердження."
+    - else
+      = f.error_notification
+
+    .form-group= f.input :email, as: :email, autofocus: true, hint: "Введіть свою електронну адресу", hint_html: {class: 'small hint-block-intime'}
+
+    = f.button :submit, "Повторне підтвердження", class: "btn btn-primary btn-wide"
+
+  %ul.form-secondary.nav.nav-pills
+    %li= link_to 'Повернутись до авторизації', new_user_session_path, class: "btn-xs"

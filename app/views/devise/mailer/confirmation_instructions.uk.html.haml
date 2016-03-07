@@ -1,0 +1,16 @@
+- content_for :subject, "Підтверди свою електронну адресу"
+
+%tr
+  %td.content-block
+    #{@resource.name}, Ти за один крок до створення профілю на
+    %em= Settings.project_name
+%tr
+  %td.content-block
+    Будь ласка, підтверди свою електронну адресу, натиснувши посилання
+%tr
+  %td.content-block
+    = link_to "Підтверди свою електронну адресу", confirmation_url(@resource, confirmation_token: @token), class: "btn-primary"
+%tr
+  %td.content-block
+    &mdash; Команда
+    %em= Settings.project_name

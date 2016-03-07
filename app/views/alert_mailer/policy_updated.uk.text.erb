@@ -1,0 +1,19 @@
+<%= capitalise_initial_character(@policy.name) %>
+<%= policy_path(@policy, only_path: false) %>
+
+<% if @version.kind_of?(WikiMotion) %>
+Змінено текст у описі відповідного голосування: <%= @version.division.name %>
+<%= division_path(@version.division, Rails.application.config.action_mailer.default_url_options.merge(only_path: false)) %>
+<% else %>
+<%= version_sentence_text(@version, Rails.application.config.action_mailer.default_url_options.merge(only_path: false)) %>
+<% end %>
+
+<%= version_attribution_text(@version) %>
+
+------------------------------------------------------
+
+Переглянь сторінку політики, щоб підписатись на її оновлення:
+<%= policy_path(@policy, only_path: false) %>
+
+Дивись всі свої підписки:
+<%= user_subscriptions_path(@user, only_path: false) %>
