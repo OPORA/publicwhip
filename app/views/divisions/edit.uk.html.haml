@@ -1,0 +1,51 @@
+- content_for :title do
+  Редагувати опис голосування —
+  = @division.name
+  —
+  = division_date_and_time(@division) + ", " + @division.house_name
+
+.page-header
+  %h1 Редагувати опис голосування
+
+%section.page-section.col-md-8
+  %p
+    - if @division.edited?
+      Зробити кращим
+    - else
+    Напиши опис до #{link_to 'цього голосування', @division, title: "Back to division: #{@division.name} — #{division_date_and_time(@division) + ", " + @division.house_name}", target: "_blank"}.
+  %p
+    Май на увазі, що опис законопроекту міститься в
+    = link_to "його картці", @division.debate_url, target: '_blank', title: 'Read the speeches given in Parliament before they voted.'
+    на порталі Верховної Ради України.
+
+  %p
+    Для опису голосування користуйся #{link_to 'нашими порадами', help_research_path, target: "_blank"}  щодо парламентських даних та
+    = link_to 'стилістики', help_style_guide_path, target: "_blank"
+
+
+.row
+  .col-md-8
+    = form_for @division, url: division_path(@division), method: :post do |f|
+      .form-group
+        -# TODO Add for to labels
+        %label Назва голосування:
+        %input.form-control{maxlength: "250", name: "newtitle", size: "50", type: "text", value: @division.name}/
+      .form-group
+        %label Опис голосування:
+        - if @division.markdown?
+          %ul.nav.nav-tabs(role="tablist")
+            %li.active= link_to "Редагувати", "#edit", role: "tab", data: {toggle: "tab"}
+            %li= link_to "Перегляд", "#preview", role: "tab", data: {toggle: "tab"}, id: "preview_link"
+          .tab-content
+            .tab-pane.active#edit
+              %textarea.form-control{cols: "45", name: "newdescription", rows: "25"}
+                = preserve(h(@division.motion)) if @division.edited?
+            .tab-pane#preview
+        - else
+          %textarea.form-control{cols: "45", name: "newdescription", rows: "25"}
+            = preserve(h(@division.motion)) if @division.edited?
+
+      %input.submit-division-edit.btn.btn-primary{accesskey: "S", name: "submit", type: "submit", value: "Зберегти"}/
+      = link_to "Відмінити", :back, class: "btn btn-default"
+  .col-md-4
+    = render "edit_help", markdown: @division.markdown

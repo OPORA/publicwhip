@@ -1,0 +1,13 @@
+- content_for :title, "Стилістичний порадник"
+- set_meta_tags description: "Стилістичний порадник для авторів Політик та Голосувань  #{Settings.project_name}."
+
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      %h1= yield :title
+      %p.lead #{inline_project_name} - сайт для всіх і тому важливо, щоб кожен міг легко знайти, як і за що голосував його депутат.
+
+.row
+  .col-md-8
+    =render "help/style_guide_copy"

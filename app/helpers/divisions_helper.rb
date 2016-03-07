@@ -249,16 +249,29 @@ module DivisionsHelper
   end
 
   def vote_select(f, value, options = {})
-    select_options = [
-      ['A less important vote', [
-        [vote_display('aye'), 'aye'],
-        [vote_display('no'), 'no']
-      ]],
-      ['An important vote', [
-        [vote_display('aye3'), 'aye3'],
-        [vote_display('no3'), 'no3']
-      ]]
-    ]
+    if locale == :uk
+      select_options = [
+          ['Менш важливе', [
+                                      [vote_display('aye'), 'aye'],
+                                      [vote_display('no'), 'no']
+                                  ]],
+          ['Важливе', [
+                                  [vote_display('aye3'), 'aye3'],
+                                  [vote_display('no3'), 'no3']
+                              ]]
+      ]
+    else
+      select_options = [
+          ['A less important vote', [
+                                      [vote_display('aye'), 'aye'],
+                                      [vote_display('no'), 'no']
+                                  ]],
+          ['An important vote', [
+                                  [vote_display('aye3'), 'aye3'],
+                                  [vote_display('no3'), 'no3']
+                              ]]
+      ]
+    end
     f.select :vote, grouped_options_for_select(select_options, value), options, size: 1, class: "selectpicker"
   end
 

@@ -1,0 +1,30 @@
+- content_for :title, "Твої підписки"
+- set_meta_tags description: "Слідкуй за Політиками, які тебе цікавлять"
+
+- content_for :header do
+  .section-header.clearfix
+    .page-header.container
+      %h1= yield :title
+      %p.lead Слідкуй за Політиками, які тебе цікавлять
+
+.row
+  .col-md-8
+    - if @user.watched_policies.any?
+      %p
+        Ти підписався, щоб отримувати листи, коли Політики
+        -#= pluralize(@user.watched_policies.size, "Політики")
+        чи
+        -#= @user.watched_policies.size == 1 ? "його" : "їх"
+        пов'язані голосування оновлені:
+      %ul.subscriptions-list.subscriptions-list-removals.object-list-compact.list-unstyled
+        - @user.watched_policies.each do |policy|
+          %li.object-item{id: "policy" + policy.id.to_s}
+            = link_to capitalise_initial_character(policy.name), policy
+            = button_to watch_policy_path(policy), class: "btn btn-link btn-sm btn-unsubscribe", form_class: "object-secondary-inline" do
+              %i.fi-x
+              %span.hidden-xs
+                відписатися
+    - else
+      %p Отримуй повідомлення на свою пошту, коли Політики, які тебе цікавлять, оновились. Підписуйся на сторінку Політики.
+
+    =link_to "Переглянути всі політики", policies_path, class: 'btn btn-default btn-sm'

@@ -68,7 +68,12 @@ module PoliciesHelper
       if version.changeset.has_key?("description")
         description1 = version.changeset["description"].first
         description2 = version.changeset["description"].second
-        changes << "Description changed from " + quote(description1) + " to " + quote(description2)
+        if I18n.locale == :uk
+          changes << "Опис змінено з " + quote(description1) + " на " + quote(description2)
+        else
+          changes << "Description changed from " + quote(description1) + " to " + quote(description2)
+        end
+
       end
 
       if version.changeset.has_key?("private")

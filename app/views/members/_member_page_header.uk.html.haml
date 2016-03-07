@@ -23,14 +23,14 @@
                   випадків
                   -# TODO: add helper tooltip for rebellions
                   -# link_to "explain...", help_faq_path(anchor: "clarify")
-                %small= link_to "що таке “голосування проти лінії фракції”", help_faq_path(anchor: "rebellion")
+                %small= link_to "що таке голосування проти фракції", help_faq_path(anchor: "rebellion")
             - if member.person.attendance_fraction
               %span.member-attendance.object-data-attendance
                 = fraction_to_percentage_display(member.person.attendance_fraction)
                 Відвідуваність
                 -# TODO: add helper tooltip for attendance
                 -# link_to "explain...", help_faq_path(anchor: "clarify")
-                %small= link_to "Пояснити відвідуваність", help_faq_path(anchor: "attendance")
+                %small= link_to "Що таке відвідуваність", help_faq_path(anchor: "attendance")
 
   .header-secondary.col-sm-12
     = render "social_share"

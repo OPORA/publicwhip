@@ -1,0 +1,29 @@
+- content_for :title, "Вітаємо на сайті  #{inline_project_name}".html_safe
+
+.welcome.row.col-md-8.col-md-offset-2
+  .welcome-intro
+    %h1
+      %em #{yield :title}!
+
+    %p Дякуємо за те, що створив/ла профіль.
+
+  %section.page-section
+    - if @policies.empty?
+      %p
+        %strong
+          Чому б тобі не розпочати зі   #{link_to "створення Політики", new_policy_path}?
+    - else
+      %p.subscriptions-list-intro
+        %strong
+          Почни з підписки, щоб відслідковувати зміни Політик, які тебе цікавлять:
+
+      %ul.subscriptions-list.object-list-compact.list-unstyled
+        - @policies.each do |policy|
+          %li.object-item{id: "policy" + policy.id.to_s}
+            = link_to capitalise_initial_character(policy.name), policy
+            = button_to watch_policy_path(policy), class: "btn btn-primary btn-sm btn-subscribe", form_class: "object-secondary-inline-sm subscribe-button-form-subscribe" do
+              Підписатись
+
+      =link_to "Переглянути всі політики", policies_path, class: 'btn btn-default btn-sm'
+
+  %p #{link_to "Переглянути останні зміни", history_path}, #{link_to "створити нову політику", policies_path} чи #{link_to "переглянути голосування", divisions_path}.

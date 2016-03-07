@@ -1,18 +1,18 @@
-- set_meta_tags description: "Search for people, policies, and divisions on #{Settings.project_name}."
+- set_meta_tags description: "Пошук по депутатам, політикам та голосуванням на #{Settings.project_name}."
 
 - if @postcode && !@postcode_error
-  - content_for :title, "Representatives for postcode #{@postcode}"
+  - content_for :title, "Результат пошуку #{@postcode}"
 - elsif params[:query].blank?
-  - content_for :title, "Search"
+  - content_for :title, "Пошук"
 - else
-  - content_for :title, (@postcode && @postcode_error ? "Search results for: #{@postcode}" : "Search results for: #{params[:query]}")
+  - content_for :title, (@postcode && @postcode_error ? "Результат пошуку: #{@postcode}" : "Результат пошуку: #{params[:query]}")
 
 - content_for :header do
   .section-header.clearfix
     .page-header.container
       - if @postcode && !@postcode_error
         %h1.long-title
-          Choose from #{@mps.size.to_words} MPs that represent postcode #{@postcode}:
+          Обери #{@mps.size.to_words} з яким повязаний #{@postcode}:
       - else
         %form.form-inline.search{action: search_path, name: "pw"}
           %h1.label-heading
@@ -25,10 +25,10 @@
 - if @postcode && !@postcode_error
   = render "members/members", members: @mps, house: nil
 - elsif @postcode_error
-  = render "home/no_search_results.html.haml", postcode: @postcode
+  = render "home/no_search_results", postcode: @postcode
 - elsif !params[:query].blank?
   - if @mps.empty? && @divisions.empty? && @policies.empty?
-    = render "home/no_search_results.html.haml", postcode: nil
+    = render "home/no_search_results", postcode: nil
 
   - if !@mps.empty?
     %section.page-section#people
@@ -46,5 +46,9 @@
       = render "divisions/divisions", member: @member, divisions: @divisions
 
   %p
-    You could also try browsing the list of #{link_to "People", members_path},
-    #{link_to "Policies", policies_path}, or #{link_to "Divisions", divisions_path}.
+    Ти можеш також переглянути перелік
+    #{link_to "Голосувань", divisions_path},
+    #{link_to "Політик", policies_path}
+    та
+    #{link_to "Депутатів", members_path}.
+
