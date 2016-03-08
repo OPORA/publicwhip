@@ -73,7 +73,7 @@ module MembersHelper
       end
     end
     text
-  end
+  end  
 
   def member_history_sentence(member)
     text = "Before being #{member_type_party_place_sentence_without_former(member)}, #{member.name_without_title} was "

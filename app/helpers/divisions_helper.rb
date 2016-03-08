@@ -272,7 +272,6 @@ module DivisionsHelper
                               ]]
       ]
     end
-
     f.select :vote, grouped_options_for_select(select_options, value), options, size: 1, class: "selectpicker"
   end
 
