@@ -84,11 +84,11 @@ module MembersHelper
   end
 
   def ukrainian_party_display_name_first(name)
-    name.gsub(/( у Верховній Раді України| восьмого скликання)/,'')
+    name.gsub(/( у Верховній Раді України| восьмого скликання|Фракція)/,'')
   end
 
   def ukrainian_party_display_name_second(name)
-    name.gsub(/( у Верховній Раді України| восьмого скликання| партії Фракція)/,'')
+    name.gsub(/( у Верховній Раді України| восьмого скликання| партії Фракція|Фракція)/,'')
   end
 
 end
