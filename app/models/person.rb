@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  has_many :members, -> {where(left_house: '9999-12-31').order(entered_house: :desc)}
+  has_many :members, -> {order(entered_house: :desc)}
   has_many :policy_person_distances
   has_many :offices
   # People who are currently in parliament
