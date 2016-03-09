@@ -14,6 +14,12 @@ GIT
     marker (0.4.0)
       treetop (~> 1.4)
 
+GIT
+  remote: https://github.com/everypolitician/everypolitician-popolo.git
+  revision: d9415242846ef06e5b498e318711d01ea6575b59
+  specs:
+    everypolitician-popolo (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -450,6 +456,7 @@ DEPENDENCIES
   devise-i18n
   diffy
   email_spec
+  everypolitician-popolo!
   factory_girl_rails
   foreman
   foundation-icons-sass-rails

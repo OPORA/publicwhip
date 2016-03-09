@@ -29,8 +29,8 @@ describe DataLoader::Ukraine::People do
 
   describe ".load_using_everypolitician_gem!" do
     subject(:load_data) do
-      VCR.use_cassette('everypolitician') do
-        DataLoader::Ukraine::People.new.load!
+      VCR.use_cassette('everypolitician', record: :new_episodes) do
+        DataLoader::Ukraine::People.new.load_using_everypolitician_gem!
       end
     end
 

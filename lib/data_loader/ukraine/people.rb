@@ -7,8 +7,11 @@ module DataLoader
 
       def initialize
         @data = DataLoader::Ukraine::Popolo.load(URL)
+        require 'open-uri'
+        @data2 = Everypolitician::Popolo.parse(open(URL).read)
 
         @people = @data["persons"]
+        @people2 = @data2.persons
         @organizations = @data["organizations"]
         @areas = @data["areas"]
         @events = @data["events"]
@@ -54,9 +57,9 @@ module DataLoader
       end
 
       def load_using_everypolitician_gem!
-        Rails.logger.info "Loading #{@people.count} people..."
-        @people.each do |p|
-          id = extract_rada_id_from_person(p)
+        Rails.logger.info "Loading #{@people2.count} people..."
+        @people2.each do |p|
+          id = extract_rada_id_from_person2(p)
           person = Person.find_or_initialize_by(id: id)
           person.small_image_url = image_url(id)
           person.large_image_url = image_url(id)
@@ -66,20 +69,20 @@ module DataLoader
         members = @data["memberships"]
         Rails.logger.info "Loading #{members.count} memberships..."
         members.each do |m|
-          raise "Person not found: #{m["person_id"]}" unless person = @people.find { |p| p["id"] == m["person_id"] }
+          raise "Person not found: #{m["person_id"]}" unless person = @people2.find { |p| p.id == m["person_id"] }
           raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations.find { |o| o["id"] == m["on_behalf_of_id"] }
           raise "Area not found: #{m["area_id"]}" unless area = @areas.find { |a| a["id"] == m["area_id"] }
           raise "Legislative period not found: #{m["legislative_period_id"]}" unless legislative_period = @events.find { |e| e["id"] == m["legislative_period_id"] }
-          person["rada_id"] = extract_rada_id_from_person(person)
+          person_rada_id = extract_rada_id_from_person2(person)
 
           # Default to the start of the legislative period if there no specific one set for this membership
           start_date = m["start_date"] || legislative_period["start_date"]
 
-          member = Member.find_or_initialize_by(person_id: person["rada_id"], entered_house: start_date)
+          member = Member.find_or_initialize_by(person_id: person_rada_id, entered_house: start_date)
           member.gid = m["person_id"]
-          member.source_gid = person["rada_id"]
-          member.first_name = person["given_name"]
-          member.last_name = person["family_name"]
+          member.source_gid = person_rada_id
+          member.first_name = person.given_name
+          member.last_name = person.family_name
           member.title = ""
           member.constituency = area["name"]
           member.party = party["name"]
@@ -87,12 +90,16 @@ module DataLoader
           member.house = "rada"
           member.entered_house = start_date
           member.left_house = m["end_date"] if m["end_date"]
-          member.person_id = person["rada_id"]
+          member.person_id = person_rada_id
           member.save!
         end
       end
 
       private
+
+      def extract_rada_id_from_person2(person)
+        person.identifier("rada")
+      end
 
       def extract_rada_id_from_person(person)
         person["identifiers"].find { |i| i["scheme"] == "rada" }["identifier"]
