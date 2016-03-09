@@ -13,6 +13,7 @@ module DataLoader
         @people = @data["persons"]
         @people2 = @data2.persons
         @organizations = @data["organizations"]
+        @organizations2 = @data2.organizations
         @areas = @data["areas"]
         @events = @data["events"]
       end
@@ -70,7 +71,7 @@ module DataLoader
         Rails.logger.info "Loading #{members.count} memberships..."
         members.each do |m|
           raise "Person not found: #{m["person_id"]}" unless person = @people2.find { |p| p.id == m["person_id"] }
-          raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations.find { |o| o["id"] == m["on_behalf_of_id"] }
+          raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations2.find { |o| o.id == m["on_behalf_of_id"] }
           raise "Area not found: #{m["area_id"]}" unless area = @areas.find { |a| a["id"] == m["area_id"] }
           raise "Legislative period not found: #{m["legislative_period_id"]}" unless legislative_period = @events.find { |e| e["id"] == m["legislative_period_id"] }
           person_rada_id = extract_rada_id_from_person2(person)
@@ -85,7 +86,7 @@ module DataLoader
           member.last_name = person.family_name
           member.title = ""
           member.constituency = area["name"]
-          member.party = party["name"]
+          member.party = party.name
           # TODO: Remove hardcoded house
           member.house = "rada"
           member.entered_house = start_date
