@@ -21,9 +21,15 @@ describe DataLoader::Ukraine::People do
     end
 
     it "creates memberships for the people" do
+      expected_constituency = "Загальнодержавному багатомандатному округу"
+      expected_party_name = "Фракція політичної партії \"Всеукраїнське об'єднання \"Батьківщина\" у Верховній Раді України"
+      expected_entered_house_date = Date.new(2014,11,27)
+
       load_data
 
-      expect(Person.first.members.count).to eq 1
+      expect(Person.first.members.first.constituency).to eq expected_constituency
+      expect(Person.first.members.first.party).to eq expected_party_name
+      expect(Person.first.members.first.entered_house).to eq expected_entered_house_date
     end
   end
 
@@ -47,9 +53,15 @@ describe DataLoader::Ukraine::People do
     end
 
     it "creates memberships for the people" do
+      expected_constituency = "Загальнодержавному багатомандатному округу"
+      expected_party_name = "Фракція політичної партії \"Всеукраїнське об'єднання \"Батьківщина\" у Верховній Раді України"
+      expected_entered_house_date = Date.new(2014,11,27)
+
       load_data
 
-      expect(Person.first.members.count).to eq 1
+      expect(Person.first.members.first.constituency).to eq expected_constituency
+      expect(Person.first.members.first.party).to eq expected_party_name
+      expect(Person.first.members.first.entered_house).to eq expected_entered_house_date
     end
   end
 end
