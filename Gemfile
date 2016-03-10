@@ -62,7 +62,7 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'gettext_i18n_rails'
 gem 'kaminari'
 gem 'kaminari-i18n', '~> 0.3.2'
-gem 'everypolitician-popolo', git: "https://github.com/everypolitician/everypolitician-popolo.git"
+gem 'everypolitician-popolo', git: "https://github.com/openaustralia/everypolitician-popolo.git", branch: "expand-classes"
 
 group :test do
   # We can't use transactional fixtures as the php app and the rails app need to see

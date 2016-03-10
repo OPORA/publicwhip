@@ -15,8 +15,9 @@ GIT
       treetop (~> 1.4)
 
 GIT
-  remote: https://github.com/everypolitician/everypolitician-popolo.git
-  revision: d9415242846ef06e5b498e318711d01ea6575b59
+  remote: https://github.com/openaustralia/everypolitician-popolo.git
+  revision: d636a261955a36e36c2013cebf10070b6c668717
+  branch: expand-classes
   specs:
     everypolitician-popolo (0.1.0)
 
