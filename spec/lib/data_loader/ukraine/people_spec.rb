@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe DataLoader::Ukraine::People do
+  before :each do
+    # TODO: Work out why fixtures are loaded - we don't want them
+    # Should we replace fixtures with factories throughout the tests?
+    Person.delete_all
+  end
+
   describe ".load!" do
     subject(:load_data) do
       VCR.use_cassette('everypolitician') do
