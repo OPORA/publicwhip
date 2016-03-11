@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module DataLoader
   module Ukraine
     class People
@@ -13,7 +15,6 @@ module DataLoader
           url = ENV["DEBUG_URL"] || DEFAULT_EVERYPOLITICIAN_UKRAINE_URL
         end
 
-        require 'open-uri'
         @data = Everypolitician::Popolo.parse(open(url).read)
 
         @people = @data.persons
