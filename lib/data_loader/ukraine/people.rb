@@ -1,14 +1,21 @@
 module DataLoader
   module Ukraine
     class People
-      URL = ENV["DEBUG_URL"] || "https://raw.githubusercontent.com/everypolitician/everypolitician-data/master/data/Ukraine/Verkhovna_Rada/ep-popolo-v1.0.json"
+      DEFAULT_EVERYPOLITICIAN_UKRAINE_URL = "https://raw.githubusercontent.com/everypolitician/everypolitician-data/master/data/Ukraine/Verkhovna_Rada/ep-popolo-v1.0.json"
 
       attr_accessor :data, :persons, :organizations, :areas, :events
 
-      def initialize
-        @data = DataLoader::Ukraine::Popolo.load(URL)
+      def initialize(url = nil)
+        # If an Popolo file hasn't been specified as a parameter, try using
+        # the DEBUG_URL environment variable (so you can set it from a Rake task),
+        # or use the default URL for Ukraine EveryPolitician data.
+        if url.nil?
+          url = ENV["DEBUG_URL"] || DEFAULT_EVERYPOLITICIAN_UKRAINE_URL
+        end
+
+        @data = DataLoader::Ukraine::Popolo.load(url)
         require 'open-uri'
-        @data2 = Everypolitician::Popolo.parse(open(URL).read)
+        @data2 = Everypolitician::Popolo.parse(open(url).read)
 
         @people = @data["persons"]
         @people2 = @data2.persons
