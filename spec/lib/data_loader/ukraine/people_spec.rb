@@ -9,27 +9,27 @@ describe DataLoader::Ukraine::People do
 
   describe ".load!" do
     subject(:load_data) do
-      VCR.use_cassette('everypolitician') do
-        DataLoader::Ukraine::People.new.load!
-      end
+      DataLoader::Ukraine::People.new(
+        RSpec.configuration.fixture_path + "/ep-popolo-v1.0_abridged.json"
+      ).load!
     end
 
     it "creates new people" do
       load_data
 
-      expect(Person.count).to eq 443
+      expect(Person.count).to eq 2
     end
 
     it "extracts the person’s rada id" do
       load_data
 
-      expect(Person.first.id).to eq 386
+      expect(Person.first.id).to eq 15794
     end
 
     it "creates memberships for the people" do
-      expected_constituency = "Загальнодержавному багатомандатному округу"
-      expected_party_name = "Фракція політичної партії \"Всеукраїнське об'єднання \"Батьківщина\" у Верховній Раді України"
-      expected_entered_house_date = Date.new(2014,11,27)
+      expected_constituency = "Миколаївська область"
+      expected_party_name = "Група \"Партія \"Відродження\""
+      expected_entered_house_date = Date.new(2015,06,17)
 
       load_data
 
@@ -41,27 +41,27 @@ describe DataLoader::Ukraine::People do
 
   describe ".load_using_everypolitician_gem!" do
     subject(:load_data) do
-      VCR.use_cassette('everypolitician', record: :new_episodes) do
-        DataLoader::Ukraine::People.new.load_using_everypolitician_gem!
-      end
+      DataLoader::Ukraine::People.new(
+        RSpec.configuration.fixture_path + "/ep-popolo-v1.0_abridged.json"
+      ).load_using_everypolitician_gem!
     end
 
     it "creates new people" do
       load_data
 
-      expect(Person.count).to eq 443
+      expect(Person.count).to eq 2
     end
 
     it "extracts the person’s rada id" do
       load_data
 
-      expect(Person.first.id).to eq 386
+      expect(Person.first.id).to eq 15794
     end
 
     it "creates memberships for the people" do
-      expected_constituency = "Загальнодержавному багатомандатному округу"
-      expected_party_name = "Фракція політичної партії \"Всеукраїнське об'єднання \"Батьківщина\" у Верховній Раді України"
-      expected_entered_house_date = Date.new(2014,11,27)
+      expected_constituency = "Миколаївська область"
+      expected_party_name = "Група \"Партія \"Відродження\""
+      expected_entered_house_date = Date.new(2015,06,17)
 
       load_data
 

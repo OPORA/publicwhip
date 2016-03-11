@@ -1,0 +1,325 @@
+{
+  "persons": [
+    {
+      "family_name": "Ільюк",
+      "gender": "male",
+      "given_name": "Артем",
+      "id": "04060b58-733b-49b1-ac7a-e0191145bf65",
+      "identifiers": [
+        {
+          "identifier": "15794",
+          "scheme": "everypolitician_legacy"
+        },
+        {
+          "identifier": "15794",
+          "scheme": "rada"
+        },
+        {
+          "identifier": "Q20067307",
+          "scheme": "wikidata"
+        }
+      ],
+      "image": "http://static.rada.gov.ua/dep_img8/d128_1.jpg",
+      "images": [
+        {
+          "url": "http://static.rada.gov.ua/dep_img8/d128_1.jpg"
+        }
+      ],
+      "links": [
+        {
+          "note": "Wikipedia (uk)",
+          "url": "https://uk.wikipedia.org/wiki/Ільюк_Артем_Олександрович"
+        }
+      ],
+      "name": "Ільюк Артем Олександрович",
+      "other_names": [
+        {
+          "lang": "uk",
+          "name": "Ільюк Артем Олександрович",
+          "note": "multilingual"
+        }
+      ],
+      "patronymic_name": "Олександрович"
+    },
+    {
+      "birth_date": "1981-04-14",
+      "family_name": "Євлахов",
+      "gender": "male",
+      "given_name": "Анатолій",
+      "id": "708dd93b-d6a6-4083-a338-f3c64cec4929",
+      "identifiers": [
+        {
+          "identifier": "18089",
+          "scheme": "everypolitician_legacy"
+        },
+        {
+          "identifier": "18089",
+          "scheme": "rada"
+        },
+        {
+          "identifier": "Q20067002",
+          "scheme": "wikidata"
+        }
+      ],
+      "image": "http://static.rada.gov.ua/dep_img8/d207_1.jpg",
+      "images": [
+        {
+          "url": "http://static.rada.gov.ua/dep_img8/d207_1.jpg"
+        }
+      ],
+      "links": [
+        {
+          "note": "Wikipedia (uk)",
+          "url": "https://uk.wikipedia.org/wiki/Євлахов_Анатолій_Сергійович"
+        }
+      ],
+      "name": "Євлахов Анатолій Сергійович",
+      "other_names": [
+        {
+          "lang": "uk",
+          "name": "Євлахов Анатолій Сергійович",
+          "note": "multilingual"
+        }
+      ],
+      "patronymic_name": "Сергійович"
+    }
+  ],
+  "organizations": [
+    {
+      "classification": "legislature",
+      "id": "legislature",
+      "identifiers": [
+        {
+          "identifier": "Q176296",
+          "scheme": "wikidata"
+        }
+      ],
+      "name": "Verkhovna Rada",
+      "seats": 450
+    },
+    {
+      "classification": "party",
+      "id": "2618",
+      "identifiers": [
+        {
+          "identifier": "Q15846526",
+          "scheme": "wikidata"
+        }
+      ],
+      "name": "Група \"Економічний розвиток\"",
+      "other_names": [
+        {
+          "lang": "en",
+          "name": "Economic Development (parliamentary faction)",
+          "note": "multilingual"
+        },
+        {
+          "lang": "uk",
+          "name": "Економічний розвиток",
+          "note": "multilingual"
+        }
+      ]
+    },
+    {
+      "classification": "party",
+      "id": "2795",
+      "name": "Група \"Відродження\""
+    },
+    {
+      "classification": "party",
+      "id": "2846",
+      "identifiers": [
+        {
+          "identifier": "Q20075233",
+          "scheme": "wikidata"
+        }
+      ],
+      "name": "Група \"Партія \"Відродження\"",
+      "other_names": [
+        {
+          "lang": "uk",
+          "name": "Відродження",
+          "note": "multilingual"
+        }
+      ]
+    },
+    {
+      "classification": "party",
+      "id": "2613",
+      "identifiers": [
+        {
+          "identifier": "Q4349891",
+          "scheme": "wikidata"
+        }
+      ],
+      "name": "Фракція ПАРТІЇ \"БЛОК ПЕТРА ПОРОШЕНКА\"",
+      "other_names": [
+        {
+          "lang": "pl",
+          "name": "Partia Solidarność",
+          "note": "multilingual"
+        },
+        {
+          "lang": "en",
+          "name": "Petro Poroshenko Bloc",
+          "note": "multilingual"
+        },
+        {
+          "lang": "fi",
+          "name": "Solidaarisuus",
+          "note": "multilingual"
+        },
+        {
+          "lang": "sv",
+          "name": "Solidarnist",
+          "note": "multilingual"
+        },
+        {
+          "lang": "uk",
+          "name": "Солідарність",
+          "note": "multilingual"
+        },
+        {
+          "lang": "ru",
+          "name": "Солидарность",
+          "note": "multilingual"
+        },
+        {
+          "lang": "de",
+          "name": "Solidariät (Ukraine)",
+          "note": "multilingual"
+        },
+        {
+          "lang": "pt",
+          "name": "Solidariedade",
+          "note": "multilingual"
+        },
+        {
+          "lang": "sr",
+          "name": "Солидарност",
+          "note": "multilingual"
+        },
+        {
+          "lang": "sr-ec",
+          "name": "Солидарност",
+          "note": "multilingual"
+        },
+        {
+          "lang": "sr-el",
+          "name": "Solidarnost",
+          "note": "multilingual"
+        },
+        {
+          "lang": "ja",
+          "name": "ペトロ・ポロシェンコ・ブロック",
+          "note": "multilingual"
+        },
+        {
+          "lang": "fr",
+          "name": "bloc Petro Porochenko",
+          "note": "multilingual"
+        },
+        {
+          "lang": "az",
+          "name": "Pyotr Poroşenkonun Bloku",
+          "note": "multilingual"
+        },
+        {
+          "lang": "lt",
+          "name": "Petro Porošenkos blokas",
+          "note": "multilingual"
+        },
+        {
+          "lang": "el",
+          "name": "Μπλοκ του Πέτρο Ποροσένκο",
+          "note": "multilingual"
+        },
+        {
+          "lang": "cs",
+          "name": "Blok Petra Porošenka",
+          "note": "multilingual"
+        },
+        {
+          "lang": "es",
+          "name": "Bloque Petro Poroshenko",
+          "note": "multilingual"
+        },
+        {
+          "lang": "zh",
+          "name": "彼得·波罗申科集团",
+          "note": "multilingual"
+        },
+        {
+          "lang": "ko",
+          "name": "페트로 포로셴코 블록",
+          "note": "multilingual"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "sources": [
+      "http://rada.gov.ua/",
+      "http://wikidata.org/"
+    ]
+  },
+  "memberships": [
+    {
+      "area_id": "128",
+      "end_date": "2015-03-05",
+      "legislative_period_id": "term/8",
+      "on_behalf_of_id": "2618",
+      "organization_id": "legislature",
+      "person_id": "04060b58-733b-49b1-ac7a-e0191145bf65",
+      "role": "member"
+    },
+    {
+      "area_id": "128",
+      "end_date": "2015-06-17",
+      "legislative_period_id": "term/8",
+      "on_behalf_of_id": "2795",
+      "organization_id": "legislature",
+      "person_id": "04060b58-733b-49b1-ac7a-e0191145bf65",
+      "role": "member",
+      "start_date": "2015-03-06"
+    },
+    {
+      "area_id": "128",
+      "legislative_period_id": "term/8",
+      "on_behalf_of_id": "2846",
+      "organization_id": "legislature",
+      "person_id": "04060b58-733b-49b1-ac7a-e0191145bf65",
+      "role": "member",
+      "start_date": "2015-06-17"
+    },
+    {
+      "area_id": "207",
+      "legislative_period_id": "term/8",
+      "on_behalf_of_id": "2613",
+      "organization_id": "legislature",
+      "person_id": "708dd93b-d6a6-4083-a338-f3c64cec4929",
+      "role": "member"
+    }
+  ],
+  "events": [
+    {
+      "classification": "legislative period",
+      "id": "term/8",
+      "name": "8th Verkhovna Rada",
+      "organization_id": "legislature",
+      "start_date": "2014-11-27"
+    }
+  ],
+  "areas": [
+    {
+      "id": "128",
+      "name": "Миколаївська область",
+      "type": "constituency"
+    },
+    {
+      "id": "207",
+      "name": "Чернігівська область",
+      "type": "constituency"
+    }
+  ]
+}
