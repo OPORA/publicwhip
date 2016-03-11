@@ -38,36 +38,4 @@ describe DataLoader::Ukraine::People do
       expect(Person.first.members.first.entered_house).to eq expected_entered_house_date
     end
   end
-
-  describe ".load_using_everypolitician_gem!" do
-    subject(:load_data) do
-      DataLoader::Ukraine::People.new(
-        RSpec.configuration.fixture_path + "/ep-popolo-v1.0_abridged.json"
-      ).load_using_everypolitician_gem!
-    end
-
-    it "creates new people" do
-      load_data
-
-      expect(Person.count).to eq 2
-    end
-
-    it "extracts the person’s rada id" do
-      load_data
-
-      expect(Person.first.id).to eq 15794
-    end
-
-    it "creates memberships for the people" do
-      expected_constituency = "Миколаївська область"
-      expected_party_name = "Група \"Партія \"Відродження\""
-      expected_entered_house_date = Date.new(2015,06,17)
-
-      load_data
-
-      expect(Person.first.members.first.constituency).to eq expected_constituency
-      expect(Person.first.members.first.party).to eq expected_party_name
-      expect(Person.first.members.first.entered_house).to eq expected_entered_house_date
-    end
-  end
 end
