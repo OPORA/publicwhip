@@ -17,6 +17,7 @@ module DataLoader
         @areas = @data["areas"]
         @areas2 = @data2.areas
         @events = @data["events"]
+        @events2 = @data2.events
       end
 
       def load!
@@ -74,11 +75,11 @@ module DataLoader
           raise "Person not found: #{m["person_id"]}" unless person = @people2.find { |p| p.id == m["person_id"] }
           raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations2.find { |o| o.id == m["on_behalf_of_id"] }
           raise "Area not found: #{m["area_id"]}" unless area = @areas2.find { |a| a.id == m["area_id"] }
-          raise "Legislative period not found: #{m["legislative_period_id"]}" unless legislative_period = @events.find { |e| e["id"] == m["legislative_period_id"] }
+          raise "Legislative period not found: #{m["legislative_period_id"]}" unless legislative_period = @events2.find { |e| e.id == m["legislative_period_id"] }
           person_rada_id = extract_rada_id_from_person2(person)
 
           # Default to the start of the legislative period if there no specific one set for this membership
-          start_date = m["start_date"] || legislative_period["start_date"]
+          start_date = m["start_date"] || legislative_period.start_date
 
           member = Member.find_or_initialize_by(person_id: person_rada_id, entered_house: start_date)
           member.gid = m["person_id"]
