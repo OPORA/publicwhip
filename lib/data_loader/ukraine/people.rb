@@ -18,6 +18,8 @@ module DataLoader
         @areas2 = @data2.areas
         @events = @data["events"]
         @events2 = @data2.events
+        @members = @data["memberships"]
+        @members2 = @data["memberships"]
       end
 
       def load!
@@ -30,9 +32,8 @@ module DataLoader
           person.save!
         end
 
-        members = @data["memberships"]
-        Rails.logger.info "Loading #{members.count} memberships..."
-        members.each do |m|
+        Rails.logger.info "Loading #{@members.count} memberships..."
+        @members.each do |m|
           raise "Person not found: #{m["person_id"]}" unless person = @people.find { |p| p["id"] == m["person_id"] }
           raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations.find { |o| o["id"] == m["on_behalf_of_id"] }
           raise "Area not found: #{m["area_id"]}" unless area = @areas.find { |a| a["id"] == m["area_id"] }
@@ -69,9 +70,8 @@ module DataLoader
           person.save!
         end
 
-        members = @data["memberships"]
-        Rails.logger.info "Loading #{members.count} memberships..."
-        members.each do |m|
+        Rails.logger.info "Loading #{@members2.count} memberships..."
+        @members2.each do |m|
           raise "Person not found: #{m["person_id"]}" unless person = @people2.find { |p| p.id == m["person_id"] }
           raise "Party not found: #{m["on_behalf_of_id"]}" unless party = @organizations2.find { |o| o.id == m["on_behalf_of_id"] }
           raise "Area not found: #{m["area_id"]}" unless area = @areas2.find { |a| a.id == m["area_id"] }
