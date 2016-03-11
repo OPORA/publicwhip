@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/openaustralia/everypolitician-popolo.git
-  revision: d636a261955a36e36c2013cebf10070b6c668717
+  revision: 9897e6e2da3c01978e6e5997fec261f3bb690992
   branch: expand-classes
   specs:
     everypolitician-popolo (0.1.0)
