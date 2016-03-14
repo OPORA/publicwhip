@@ -5,12 +5,17 @@ module DataLoader
 
       attr_accessor :data
 
-      def initialize(date, url = nil)
-        if url.nil?
-          url = ENV["DEBUG_URL"] || DEFAULT_BASE_URL
+      def initialize(date = nil, url = nil)
+        if date
+          url = DEFAULT_BASE_URL + date.to_s
+        elsif url
+          url = url
+        elsif ENV["DEBUG_URL"]
+          url = ENV["DEBUG_URL"]
+        else
+          raise "date or url not specified"
         end
 
-        url += date.to_s
         @data = DataLoader::Ukraine::Popolo.load(url)
       end
 
