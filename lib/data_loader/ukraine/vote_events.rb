@@ -1,12 +1,16 @@
 module DataLoader
   module Ukraine
     class VoteEvents
-      BASE_URL = ENV["DEBUG_URL"] || "https://arcane-mountain-8284.herokuapp.com/vote_events/"
+      DEFAULT_BASE_URL = "https://arcane-mountain-8284.herokuapp.com/vote_events/"
 
       attr_accessor :data
 
-      def initialize(date)
-        url = BASE_URL + date.to_s
+      def initialize(date, url = nil)
+        if url.nil?
+          url = ENV["DEBUG_URL"] || DEFAULT_BASE_URL
+        end
+
+        url += date.to_s
         @data = DataLoader::Ukraine::Popolo.load(url)
       end
 
