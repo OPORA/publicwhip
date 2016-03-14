@@ -3,21 +3,26 @@ module DataLoader
     class VoteEvents
       DEFAULT_BASE_URL = "https://arcane-mountain-8284.herokuapp.com/vote_events/"
 
-      attr_accessor :data
+      attr_accessor :data, :specified_date, :specified_url
 
-      def initialize(date = nil, url = nil)
-        if date
-          url = DEFAULT_BASE_URL + date.to_s
-        elsif url
-          url = url
+      def initialize(specified_date = nil, specified_url = nil)
+        @specified_date = specified_date
+        @specified_url = specified_url
+      end
+
+      def url
+       if specified_date
+          DEFAULT_BASE_URL + specified_date.to_s
+        elsif specified_url
+          specified_url
         else
           raise "date or url not specified"
         end
-
-        @data = DataLoader::Ukraine::Popolo.load(url)
       end
 
       def load!
+        @data = DataLoader::Ukraine::Popolo.load(url)
+
         vote_events = @data["vote_events"]
 
         Rails.logger.info "Loading #{vote_events.count} vote_events..."
