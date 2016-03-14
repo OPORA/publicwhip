@@ -10,8 +10,6 @@ module DataLoader
           url = DEFAULT_BASE_URL + date.to_s
         elsif url
           url = url
-        elsif ENV["DEBUG_URL"]
-          url = ENV["DEBUG_URL"]
         else
           raise "date or url not specified"
         end
