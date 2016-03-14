@@ -29,4 +29,15 @@ describe DataLoader::Ukraine::VoteEvents do
       expect{ data_loader.url }.to raise_error "date or url not specified"
     end
   end
+
+  describe "#popolo_to_publicwhip_vote" do
+    subject(:data_loader) { DataLoader::Ukraine::VoteEvents.new() }
+
+    it { expect(data_loader.popolo_to_publicwhip_vote("yes")).to eq "aye" }
+    it { expect(data_loader.popolo_to_publicwhip_vote("no")).to eq "no" }
+    it { expect(data_loader.popolo_to_publicwhip_vote("abstain")).to eq "abstention" }
+    it { expect(data_loader.popolo_to_publicwhip_vote("absent")).to be_nil }
+    it { expect(data_loader.popolo_to_publicwhip_vote("not voting")).to eq "not voting" }
+    it { expect{ data_loader.popolo_to_publicwhip_vote("foo") }.to raise_error "Unknown vote option: foo" }
+  end
 end
