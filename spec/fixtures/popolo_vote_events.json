@@ -1,0 +1,59 @@
+{ "vote_events" : [ { "bills" : [ { "official_id" : "0081",
+              "title" : "Проект Закону про ратифікацію Протоколу про сталий транспорт до Рамкової конвенції про охорону та сталий розвиток Карпат",
+              "url" : "http://w1.c1.rada.gov.ua/pls/zweb2/webproc4_2?id=&pf3516=0081&skl=9",
+              "vote_event_id" : "6063"
+            } ],
+        "identifier" : "6063",
+        "organization_id" : "rada",
+        "result" : "fail",
+        "sources" : [ { "note" : "Source URL",
+              "url" : "http://w1.c1.rada.gov.ua/pls/radan_gs09/ns_golos?g_id=6063"
+            },
+            { "note" : "Debate URL",
+              "url" : "http://w1.c1.rada.gov.ua/pls/radan_gs09/ns_el_h2?data=17022016&nom_s=3"
+            }
+          ],
+        "start_date" : "2016-02-17T10:41:00+00:00",
+        "title" : "Поіменне голосування  про розгляд за скороченою процедурою проекту Закону про ратифікацію Протоколу про сталий транспорт до Рамкової конвенції про охорону та сталий розвиток Карпат (№0081)",
+        "votes" : [ { "group_id" : "2613",
+              "option" : "absent",
+              "vote_event_id" : "6063",
+              "voter_id" : "123"
+            },
+            { "group_id" : "2615",
+              "option" : "yes",
+              "vote_event_id" : "6063",
+              "voter_id" : "456"
+            }
+          ]
+      },
+      { "bills" : [ { "official_id" : "0081",
+              "title" : "Проект Закону про ратифікацію Протоколу про сталий транспорт до Рамкової конвенції про охорону та сталий розвиток Карпат",
+              "url" : "http://w1.c1.rada.gov.ua/pls/zweb2/webproc4_2?id=&pf3516=0081&skl=9",
+              "vote_event_id" : "6064"
+            } ],
+        "identifier" : "6064",
+        "organization_id" : "rada",
+        "result" : "fail",
+        "sources" : [ { "note" : "Source URL",
+              "url" : "http://w1.c1.rada.gov.ua/pls/radan_gs09/ns_golos?g_id=6064"
+            },
+            { "note" : "Debate URL",
+              "url" : "http://w1.c1.rada.gov.ua/pls/radan_gs09/ns_el_h2?data=17022016&nom_s=3"
+            }
+          ],
+        "start_date" : "2016-02-17T10:42:00+00:00",
+        "title" : "Поіменне голосування  про розгляд за скороченою процедурою проекту Закону про ратифікацію Протоколу про сталий транспорт до Рамкової конвенції про охорону та сталий розвиток Карпат (№0081)",
+        "votes" : [ { "group_id" : "2613",
+              "option" : "no",
+              "vote_event_id" : "6064",
+              "voter_id" : "123"
+            },
+            { "group_id" : "2615",
+              "option" : "not voting",
+              "vote_event_id" : "6064",
+              "voter_id" : "456"
+            }
+          ]
+      }
+    ] }
