@@ -9,14 +9,14 @@
 %p
   Сайт містить інформацію про голосування
   %strong= number_with_delimiter(Member.select(:person_id).distinct.count)
-  народних депутати з
+  народних депутатів з
   %strong= number_with_delimiter(Member.select(:party).distinct.count)
   фракцій та
-  2 депутатських груп. Наразі вони проголосували
+  2 депутатських груп за
   %strong= number_with_delimiter(Division.count)
-  законопроектів. #{inline_project_name} зібрав
+  питання порядку денного. #{inline_project_name} зібрав
   %strong= number_with_delimiter(Vote.count)
-  голосувань депутатів,
+  окремих голосувань депутатів,
   %strong= number_with_delimiter(Member.joins(:member_info).sum(:rebellions).to_i)
   з яких були проти більшості їхньої фракції/групи. Це дає можливість вирахувати рейтинг
   голосувань проти лінії фракцій/груп, як
