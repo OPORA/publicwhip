@@ -35,6 +35,8 @@ describe DataLoader::Ukraine::VoteEvents do
       # Fix the Database Cleaner setup so this isn’t required
       Member.delete_all
       Person.delete_all
+      Division.delete_all
+      Vote.delete_all
 
       person1 = create(:person, id: 123)
       person2 = create(:person, id: 456)
