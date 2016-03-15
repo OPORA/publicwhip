@@ -152,6 +152,12 @@
   a {
     text-decoration: none;
   }
+  .org-usaid {
+    &:hover,
+    &:focus {
+      opacity: .5;
+    }
+  }
 
   .supporting-org {
     &:hover,
