@@ -6,6 +6,13 @@ GIT
       capistrano (>= 3.0)
 
 GIT
+  remote: git://github.com/openaustralia/everypolitician-popolo.git
+  revision: ad3c46d6923d7095e3dc20f52097a40d75d0e712
+  branch: allow-empty-collections
+  specs:
+    everypolitician-popolo (0.2.0)
+
+GIT
   remote: git://github.com/openaustralia/marker.git
   revision: aa7ce8589f3e2a26a0b78282fe82fce9fb85dfcb
   ref: aa7ce85
@@ -450,6 +457,7 @@ DEPENDENCIES
   devise-i18n
   diffy
   email_spec
+  everypolitician-popolo!
   factory_girl_rails
   foreman
   foundation-icons-sass-rails
