@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module DataLoader
   module Ukraine
     class People
