@@ -15,7 +15,7 @@ module DataLoader
           url = ENV["DEBUG_URL"] || DEFAULT_EVERYPOLITICIAN_UKRAINE_URL
         end
 
-        @data = Everypolitician::Popolo.parse(open(url).read)
+        @data = DataLoader::Ukraine::Popolo.load(url)
 
         @people = @data.persons
         @organizations = @data.organizations
