@@ -11,7 +11,7 @@ module DataLoader
       end
 
       def url
-       if specified_date
+        if specified_date
           DEFAULT_BASE_URL + specified_date.to_s
         elsif specified_url
           specified_url
