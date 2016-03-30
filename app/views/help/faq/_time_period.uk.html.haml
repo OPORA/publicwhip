@@ -9,10 +9,9 @@
 %p
   Сайт містить інформацію про голосування
   %strong= number_with_delimiter(Member.select(:person_id).distinct.count)
-  народних депутатів з
+  народних депутатів (тих, які були обрані до Верховної Ради VIII скликання і тих, які втратили депутатський мандат) з
   %strong= number_with_delimiter(Member.select(:party).distinct.count)
-  фракцій та
-  2 депутатських груп за
+  депутатських фракцій та груп (включаючи позафракційних та депутатські групи, які припинили існування) за
   %strong= number_with_delimiter(Division.count)
   питання порядку денного. #{inline_project_name} зібрав
   %strong= number_with_delimiter(Vote.count)
