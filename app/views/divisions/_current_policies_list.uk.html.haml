@@ -5,14 +5,14 @@
         - if @display == "policies" && user_signed_in?
           = simple_form_for :policy_division, url: update_policy_division_path(division_params(@division).merge(policy_id: policy)), method: :patch, html: {class: 'division-policy-statement form-inline policyvote'} do |f|
             %label.division-policy-statement
-              People who are
-              = link_to policy.name_with_for, policy
+              Депутати, які за
+              = link_to policy.name, policy
               - if policy.provisional?
                 %em (draft)
-              would have voted
+              проголосували б
             = vote_select(f, policy.vote_for_division(@division))
-            = f.submit 'Update', class: 'btn btn-primary btn-xs'
-          = button_to 'remove', destroy_policy_division_path(division_params(@division).merge(policy_id: policy)), method: :delete, class: 'btn btn-sm btn-link'
+            = f.submit 'Оновити', class: 'btn btn-primary btn-xs'
+          = button_to 'Видалити', destroy_policy_division_path(division_params(@division).merge(policy_id: policy)), method: :delete, class: 'btn btn-sm btn-link'
         - else
           %p.division-policy-statement
             Депутати які
