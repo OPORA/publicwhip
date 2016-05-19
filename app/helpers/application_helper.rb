@@ -1,6 +1,6 @@
 module ApplicationHelper
   def default_meta_description
-    'Discover how your MP votes on the issues that matter to you.'
+    'Дізнайся, як твій депутат голосує за питання, які тебе цікавлять.'
   end
 
   def nav_link(name, path, title, current)
