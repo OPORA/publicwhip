@@ -150,6 +150,9 @@ msgstr "Створено"
 msgid " draft "
 msgstr " проект "
 
+msgid "(draft)"
+msgstr "(проект)"
+
 msgid "policy "
 msgstr "політики "
 
@@ -197,3 +200,6 @@ msgstr "було визначене як "
 
 msgid " division "
 msgstr " голосування "
+
+msgid "Name changed from "
+msgstr "Назву змінено з "

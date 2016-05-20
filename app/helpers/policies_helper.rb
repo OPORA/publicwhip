@@ -62,7 +62,7 @@ module PoliciesHelper
       if version.changeset.has_key?("name")
         name1 = version.changeset["name"].first
         name2 = version.changeset["name"].second
-        changes << "Name changed from " + quote(name1) + _(" to ") + quote(name2)
+        changes << _("Name changed from ") + quote(name1) + _(" to ") + quote(name2)
       end
 
       if version.changeset.has_key?("description")
