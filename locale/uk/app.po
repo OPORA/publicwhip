@@ -143,3 +143,57 @@ msgstr "проголосував/ла %{vote_type}"
 
 msgid "with the majority"
 msgstr "разом з більшістю"
+
+msgid "Created"
+msgstr "Створено"
+
+msgid " draft "
+msgstr " проект "
+
+msgid "policy "
+msgstr "політики "
+
+msgid " with description "
+msgstr " з описом "
+
+msgid "Changed status to draft"
+msgstr "Змінено статус на проект"
+
+msgid "Changed status to not draft"
+msgstr "Змінено статус на не проект"
+
+msgid "status to not draft"
+msgstr "статус на не проект"
+
+msgid "status to draft"
+msgstr "статус на проект"
+
+msgid "Added"
+msgstr "Додано"
+
+msgid "Removed"
+msgstr "Видалено"
+
+msgid "Changed"
+msgstr "Змінено"
+
+msgid " to "
+msgstr " на "
+
+msgid " vote from "
+msgstr " голосування з "
+
+msgid " on division "
+msgstr " в "
+
+msgid ". Policy vote "
+msgstr ". Голосування щодо політики "
+
+msgid "set to "
+msgstr "визначене як "
+
+msgid "was "
+msgstr "було визначене як "
+
+msgid " division "
+msgstr " голосування "

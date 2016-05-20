@@ -1,0 +1,13 @@
+- content_for :title do
+  Нещодавні зміни (останні зміни):
+  = capitalise_initial_character(@policy.name)
+- set_meta_tags description: "Нещодавна зміна зроблена в політиці #{@policy.name}”."
+
+.page-header.row
+  %nav.header-actions.col-md-3
+    =link_to_if(@policy, "Редагувати", edit_policy_path(@policy), title: "змінити назву та опис політики", class: "btn btn-default btn-xs")
+    =link_to "Нова політика", new_policy_path, class: "link-policy-new btn btn-primary btn-xs"
+
+  %h1.col-md-9= yield :title
+
+= render partial: "layouts/history_list"
