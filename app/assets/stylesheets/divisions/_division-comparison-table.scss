@@ -29,7 +29,7 @@
   .division-policy-vote {
     &:before {
       @media (max-width: $screen-xs-max) {
-        content: "Supporter would have voted "
+        content: "Прихильники проголосували б: "
       }
     }
   }
@@ -37,7 +37,7 @@
   .division-member-vote {
     &:before {
       @media (max-width: $screen-xs-max) {
-        content: attr(data-member) " voted ";
+        content: attr(data-member) " голосували ";
       }
     }
   }
@@ -45,7 +45,7 @@
   .division-outcome {
     &:before {
       @media (max-width: $screen-xs-max) {
-        content: "Division outcome: "
+        content: "Результати голосування: "
       }
     }
   }
