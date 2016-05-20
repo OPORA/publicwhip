@@ -170,9 +170,9 @@ class DivisionsController < ApplicationController
     wiki_motion = @division.build_wiki_motion(params[:newtitle], params[:newdescription], current_user)
 
     if wiki_motion.save
-      redirect_to view_context.division_path(@division), notice: 'Division updated'
+      redirect_to view_context.division_path(@division), notice: _('Division updated')
     else
-      redirect_to view_context.edit_division_path(@division), alert: 'Could not update division'
+      redirect_to view_context.edit_division_path(@division), alert: _('Could not update division')
     end
   end
 
@@ -195,9 +195,9 @@ class DivisionsController < ApplicationController
     policy_division = PolicyDivision.find_by!(division: division, policy: params[:policy_id])
 
     if policy_division.update(policy_division_params)
-      flash[:notice] = 'Updated policy connection'
+      flash[:notice] = _('Updated policy connection')
     else
-      flash[:error] = 'Could not update policy connection'
+      flash[:error] = _('Could not update policy connection')
     end
 
     # TODO Just point to the object when the path helper has been refactored
@@ -209,9 +209,9 @@ class DivisionsController < ApplicationController
     policy_division = PolicyDivision.find_by!(division: division, policy: params[:policy_id])
 
     if policy_division.destroy
-      flash[:notice] = 'Removed policy connection'
+      flash[:notice] = _('Removed policy connection')
     else
-      flash[:error] = 'Could not remove policy connection'
+      flash[:error] = _('Could not remove policy connection')
     end
 
     # TODO Just point to the object when the path helper has been refactored

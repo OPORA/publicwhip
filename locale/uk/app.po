@@ -203,3 +203,33 @@ msgstr " голосування "
 
 msgid "Name changed from "
 msgstr "Назву змінено з "
+
+msgid "Policy updated."
+msgstr "Політику оновлено."
+
+msgid "Unsubscribed"
+msgstr "Не підписаний/а"
+
+msgid "Successfully made new policy"
+msgstr "Нова політика успішно створена"
+
+msgid "Division updated"
+msgstr "Голосування оновлено"
+
+msgid "Could not remove policy connection"
+msgstr "Неможливо видалити зв'язок з політикою"
+
+msgid "Updated policy connection"
+msgstr "Оновлено зв'язок з політикою"
+
+msgid "Could not update policy connection"
+msgstr "Неможливо оновити політику"
+
+msgid "Could not update division"
+msgstr "Неможливо оновити голосування"
+
+msgid "Removed policy connection"
+msgstr "Видалено зв'язок з політикою"
+
+msgid "Could not connect policy"
+msgstr "Неможливо пов'язати з політикою"
