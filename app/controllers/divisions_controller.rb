@@ -184,7 +184,7 @@ class DivisionsController < ApplicationController
       # TODO Just point to the object when the path helper has been refactored
       redirect_to division_policies_path(house: @division.house, date: @division.date, number: @division.number)
     else
-      flash[:error] = 'Could not connect policy'
+      flash[:error] = _('Could not connect policy')
       @display = "policies"
       render 'show_policies'
     end
