@@ -66,15 +66,15 @@ Publicwhip::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = {
     protocol: 'https',
-    host: Settings.project_host
+    host: Settings.project_host,
+    locale: Settings.default_locale
   }
   config.action_mailer.smtp_settings = {
      address: Rails.application.secrets.cuttlefish_server,
      port: 2525,
      user_name: Rails.application.secrets.cuttlefish_user_name,
      password: Rails.application.secrets.cuttlefish_password,
-     authentication: :plain,
-     locale: Settings.default_locale
+     authentication: :plain
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
