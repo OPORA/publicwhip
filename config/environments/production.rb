@@ -67,7 +67,7 @@ Publicwhip::Application.configure do
   config.action_mailer.default_url_options = {
     protocol: 'https',
     host: Settings.project_host,
-    locale: Settings.default_locale
+    :locale => Settings.default_locale
   }
   config.action_mailer.smtp_settings = {
      address: Rails.application.secrets.cuttlefish_server,
