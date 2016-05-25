@@ -73,7 +73,8 @@ Publicwhip::Application.configure do
      port: 2525,
      user_name: Rails.application.secrets.cuttlefish_user_name,
      password: Rails.application.secrets.cuttlefish_password,
-     authentication: :plain
+     authentication: :plain,
+     locale: Settings.default_locale
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
