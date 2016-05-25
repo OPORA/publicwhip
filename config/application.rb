@@ -28,6 +28,7 @@ module Publicwhip
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.to_prepare do
+      I18n.locale = Settings.default_locale
       Devise::Mailer.layout "email" # email.haml or email.erb
     end
   end
