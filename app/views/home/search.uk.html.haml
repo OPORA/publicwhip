@@ -32,7 +32,7 @@
 
   - if !@mps.empty?
     %section.page-section#people
-      %h2= pluralize(@mps.count, "person")
+      %h2= pluralize(@mps.count, "депутатів")
       = render "members/members", members: @mps, house: nil
 
   - if !@policies.empty?
