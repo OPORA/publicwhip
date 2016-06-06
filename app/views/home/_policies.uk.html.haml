@@ -5,6 +5,6 @@
       %h3
         = link_to capitalise_initial_character(policy.name), policy
         %small
-          = pluralize(policy.divisions.count, "голосувань")
+          = "#{policy.divisions.count} голосувань"
           - if policy.unedited_motions_count != 0
             %em= "(#{policy.unedited_motions_count} unedited)"
