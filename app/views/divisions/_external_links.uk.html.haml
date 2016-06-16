@@ -2,5 +2,5 @@
   %h2.h5 Додаткові посилання
   %ul.list-unstyled.object-list-compact
     %li.object-item= link_to "Електронний протокол засідання ВРУ", division.debate_url, title: "Посилання на стенограму пленарного засідання на сайті ВРУ rada.gov.ua"
-    - division.bills.each do |bill|
+    - division.bills.uniq.each do |bill|
       %li.object-item= link_to bill.title, bill.url
