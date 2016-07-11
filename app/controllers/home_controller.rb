@@ -18,8 +18,12 @@ class HomeController < ApplicationController
 
       # Temporary work around for https://github.com/openaustralia/openaustralia/issues/502
       # Disable search postcode in ukrainian version, because is not fork http://www.openaustralia.org.au/api/getDivisions?output=js&key=CcV3KBBX2Em7GQeV3RA8qzgS&postcode=#{@postcode}" for Ukraine
-      #json_response = open("http://www.openaustralia.org.au/api/getDivisions?output=js&key=CcV3KBBX2Em7GQeV3RA8qzgS&postcode=#{@postcode}").read
-      json_response = "{\"error\":\"Unknown postcode\"}" #if json_response == "{\"error\":\"Unknown postcode\"}{}"
+      if locale != :uk
+        json_response = open("http://www.openaustralia.org.au/api/getDivisions?output=js&key=CcV3KBBX2Em7GQeV3RA8qzgS&postcode=#{@postcode}").read
+        json_response = "{\"error\":\"Unknown postcode\"}" if json_response == "{\"error\":\"Unknown postcode\"}{}"
+      else
+        json_response = "{\"error\":\"Unknown postcode\"}"
+      end 
       electorates = JSON.parse(json_response)
 
       if electorates.respond_to?("has_key?") && electorates.has_key?("error")
