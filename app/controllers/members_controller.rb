@@ -9,7 +9,7 @@ class MembersController < ApplicationController
     @sort = params[:sort]
     @house = params[:house]
 
-    members = Member.current
+    members = Member.current.group(:gid)
     if @house
       raise ActiveRecord::RecordNotFound unless House.valid?(@house)
       members = members.in_house(@house)
