@@ -39,7 +39,7 @@ module ApplicationHelper
     when "all"
       _("Representatives and Senators")
     when "rada"
-      "народний депутат"
+      "народний депутат,"
     else
       raise
     end

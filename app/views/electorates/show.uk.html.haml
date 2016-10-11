@@ -1,0 +1,51 @@
+- content_for :title do
+  = members_type(@member.house)
+  = @member.electorate
+
+.page-header
+  %h1= yield :title
+
+%p
+  %emЗверни увагу, що наші записи стосуються голосувань народних депутатів Верховної Ради України восьмого скликання, починаючи з листопада 2014 року
+  (#{link_to "деталі", help_faq_path(anchor: "timeperiod")}).
+
+%table.table
+  %thead
+    %tr
+      %th Депутат
+      %th З
+      %th До
+      %th Фракція
+      %th Проти фракції (#{link_to "пояснення", help_faq_path(anchor: "rebellion")})
+      %th Присутність (#{link_to "пояснення", help_faq_path(anchor: "attendance")})
+  %tbody
+    - @members.each do |member|
+      %tr
+        %td= link_to member.name, member
+        %td= member.since
+        %td= member.until=="today" ? "сьогодні" : member.until
+        %td= link_to member.party_name, party_divisions_path(member.party_object)
+        %td.percent
+          - if !member.person.has_whip?
+            no whip
+          - else
+            - if member.person.rebellions.nil?
+              голосувань
+            - else
+              = member.person.rebellions
+              голосувань з
+            - if member.person.votes_attended_with_whip == 0
+              0
+            - elsif member.person.votes_attended_with_whip
+              #{member.person.votes_attended_with_whip},
+              %b= fraction_to_percentage_display(member.person.rebellions_fraction)
+        %td.percent
+          - if member.person.votes_attended.nil?
+            голосування
+          - else
+            = member.person.votes_attended
+            голосувань
+          з
+          - if member.person.votes_possible
+            #{member.person.votes_possible},
+            %b= fraction_to_percentage_display(member.person.attendance_fraction)

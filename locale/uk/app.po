@@ -233,3 +233,24 @@ msgstr "Видалено зв'язок з політикою"
 
 msgid "Could not connect policy"
 msgstr "Неможливо пов'язати з політикою"
+
+msgid "large majority voted "
+msgstr "Значна більшість голосувала "
+
+msgid  "modest majority voted "
+msgstr "Проста більшість голосувала "
+
+msgid "unanimously voted "
+msgstr "Одноголосно голосували "
+
+msgid "split"
+msgstr "Розкол"
+
+msgid "small majority voted "
+msgstr "Незначна більшість голосувала "
+
+msgid "aye"
+msgstr "так"
+
+msgid "no"
+msgstr "ні"

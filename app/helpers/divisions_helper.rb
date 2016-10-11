@@ -111,15 +111,15 @@ module DivisionsHelper
 
   def whip_guess_with_strength_in_words(whip)
     if whip.majority_fraction == 1.0
-      "unanimously voted " + whip.whip_guess
+      _("unanimously voted ") + _(whip.whip_guess)
     elsif whip.majority_fraction == 0.0
-      "split"
+      _("split")
     elsif whip.majority_fraction > 2.to_f / 3
-      "large majority voted " + whip.whip_guess
+      _("large majority voted ") + _(whip.whip_guess)
     elsif whip.majority_fraction > 1.to_f / 3
-      "modest majority voted " + whip.whip_guess
+      _("modest majority voted ") + _(whip.whip_guess)
     elsif whip.majority_fraction > 0
-      "small majority voted " + whip.whip_guess
+      _("small majority voted ") + _(whip.whip_guess)
     end
   end
 
