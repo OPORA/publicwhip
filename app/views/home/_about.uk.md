@@ -29,7 +29,7 @@
 
 [Що таке “Ні” і “Ні (тверде)”?](/help/faq#no)
 
-[Що таке відвідуваність?](/help/faq#attendance)
+[Що таке присутність?](/help/faq#attendance)
 
 <h2 class="h3">Подяка</h2>
 

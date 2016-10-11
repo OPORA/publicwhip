@@ -25,15 +25,14 @@
           %span.division-rebellions.object-data-rebellion
             - if @party
               - if division.no_rebellions_in_party(@party) > 0
-                = pluralize(division.no_rebellions_in_party(@party), 'rebellion')
-                by
-                = " a " if division.no_rebellions_in_party(@party) == 1
+                = division.no_rebellions_in_party(@party)
+                голосувань проти
+
+                = " " if division.no_rebellions_in_party(@party) == 1
                 = @party
-                = "member".pluralize(division.no_rebellions_in_party(@party))
               - else
-                No rebellions by
+                Немає голосувань проти
                 = @party
-                members
             - else
               - if division.rebellions > 0
                 = division.rebellions
@@ -45,4 +44,4 @@
               = fraction_to_percentage_display(division.attendance_fraction_in_party(@party))
             - else
               = fraction_to_percentage_display(division.attendance_fraction)
-            Відвідуваність
+            Присутність

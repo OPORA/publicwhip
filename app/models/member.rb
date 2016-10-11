@@ -183,7 +183,7 @@ class Member < ActiveRecord::Base
   end
 
   def electorate
-    ukranian_list_mp? ? "обраний в Раду за списком партії" : constituency
+    ukranian_list_mp? ? "обрано в Раду за списком партії" : constituency
   end
 
   def possible_friends

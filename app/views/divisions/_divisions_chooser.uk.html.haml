@@ -10,16 +10,18 @@
         -# Sorted by
         Сортувати за
         - if @party
+          Присутність.
           = @party
         -# Attendance
-        Відвідуваністю
+
       - elsif @sort == "rebellions"
         -# Sorted by
         Сортувати за
         - if @party
+          Дотриманням фракційної дисципліни
           = @party
         -# Rebellions
-        Дотриманням фракційної дисципліни
+
       - elsif @sort == "subject"
         -# Sorted Alphabetically
         Сортувати за Алфавітом
@@ -38,9 +40,9 @@
       -# %li{role: "presentation", class: "#{'disabled' if @sort.nil?}"}
       -#   = link_to "Date", {sort: nil, rdisplay: params[:rdisplay], house: params[:house]}, title: "Sort by date", role: "menuitem", tabindex: "-1"
       %li{role: "presentation", class: "#{'disabled' if @sort == 'turnout'}"}
-        = link_to "#{@party + ' ' if @party}Відвідуваністю", {sort: "turnout", rdisplay: params[:rdisplay], house: params[:house]}, title: "Сортувати за Відвідуваністю", role: "menuitem", tabindex: "-1"
+        = link_to "Присутністю#{ ' ' + @party  if @party}", {sort: "turnout", rdisplay: params[:rdisplay], house: params[:house]}, title: "Сортувати за Відвідуваністю", role: "menuitem", tabindex: "-1"
       %li{role: "presentation", class: "#{'disabled' if @sort == 'rebellions'}"}
-        = link_to "#{@party + ' ' if @party}Дотриманням фракційної дисципліни", {sort: "rebellions", rdisplay: params[:rdisplay], house: params[:house]}, title: "Сортувати за Дотриманням фракційної дисципліни", role: "menuitem", tabindex: "-1"
+        = link_to "Дотриманням фракційної дисципліни #{' ' + @party if @party}", {sort: "rebellions", rdisplay: params[:rdisplay], house: params[:house]}, title: "Сортувати за Дотриманням фракційної дисципліни", role: "menuitem", tabindex: "-1"
       %li{role: "presentation", class: "#{'disabled' if @sort == 'subject'}"}
         = link_to "Алфавітом", {sort: "subject", rdisplay: params[:rdisplay], house: params[:house]}, title: "Сортувати за Алфавітом", role: "menuitem", tabindex: "-1"
       %li{role: "presentation", class: "#{'disabled' if @sort.nil?}"}

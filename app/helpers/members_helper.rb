@@ -44,9 +44,9 @@ module MembersHelper
     # FIXME: Translate this in a nicer way
     if I18n.locale == :uk
       if member.electorate[/в Раду за списком партії/]
-        content_tag(:span, member.party_name.gsub(/у Верховній Раді України/,''), class: 'org') + ", " + content_tag(:span, "обраний в #{content_tag(:span, member.electorate.gsub(/обраний в/,''), class: "electorate")}".html_safe, class: 'title')
+        content_tag(:span, member.party_name.gsub(/у Верховній Раді України/,''), class: 'org') + ", " + content_tag(:span, "обрано в #{content_tag(:span, member.electorate.gsub(/обраний в/,''), class: "electorate")}".html_safe, class: 'title')
       else
-        content_tag(:span, member.party_name.gsub(/у Верховній Раді України/,''), class: 'org') + ", " + content_tag(:span, "обраний по #{content_tag(:span, member.electorate, class: "electorate")}".html_safe, class: 'title')
+        content_tag(:span, member.party_name.gsub(/у Верховній Раді України/,''), class: 'org') + ", " + content_tag(:span, "обрано по #{content_tag(:span, member.electorate, class: "electorate")}".html_safe, class: 'title')
       end
     else
       content_tag(:span, member.party_name, class: 'org') + " " + content_tag(:span, "#{member_type(member.house)} for #{content_tag(:span, member.electorate, class: "electorate")}".html_safe, class: 'title')

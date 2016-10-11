@@ -25,7 +25,7 @@
       - elsif @sort == "rebellions"
         Сортувати за Дотриманням фракційної дисципліни
       - elsif @sort == "attendance"
-        Сортувати за Відвідуваністю
+        Сортувати за Присутністю
       %span.caret
 
     %ul.dropdown-menu{role: "menu", "aria-labelledby" => "dropdownMenu1"}
@@ -38,6 +38,6 @@
       %li{role: "presentation", class: "#{'disabled' if @sort == 'rebellions'}"}
         = link_to "Дотриманням фракційної дисципліни", {sort: "rebellions", house: params[:house]}, role: "menuitem", tabindex: "-1"
       %li{role: "presentation", class: "#{'disabled' if @sort == 'attendance'}"}
-        = link_to "Відвідуваністю", {sort: "attendance", house: params[:house]}, role: "menuitem", tabindex: "-1"
+        = link_to "Присутністю", {sort: "attendance", house: params[:house]}, role: "menuitem", tabindex: "-1"
 
 = render "members", members: @members, house: @house
