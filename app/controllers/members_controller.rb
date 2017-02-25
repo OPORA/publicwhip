@@ -105,4 +105,14 @@ class MembersController < ApplicationController
       @rebellions_or_nil_with_member = @rebellions_or_nil_with_member.first(3)
     end
   end
+  def show_mp
+    @member = Member.where(person_id: params[:mpi].to_i)
+    @member = @member.order(entered_house: :desc).first
+    render 'member_not_found', status: 404 if @member.nil?
+    unless @member.nil?
+      params[:mpc] = @member.constituency
+      electorate = electorate_param
+      redirect_to(member_path(:house => @member.house, :mpc => electorate, :mpn => "#{@member.first_name}_#{@member.last_name}"))
+    end
+  end
 end
