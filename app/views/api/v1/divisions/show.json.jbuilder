@@ -14,4 +14,4 @@ json.policy_divisions do
   end
 end
 
-json.bills @division.bills, partial: "api/v1/bills/bill", as: :bill
+json.bills @division.bills.uniq, partial: "api/v1/bills/bill", as: :bill
