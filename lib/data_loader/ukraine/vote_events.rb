@@ -1,7 +1,7 @@
 module DataLoader
   module Ukraine
     class VoteEvents
-      DEFAULT_BASE_URL = "https://arcane-mountain-8284.herokuapp.com/vote_events/"
+      DEFAULT_BASE_URL = "https://scrapervoted.rada4you.org/vote_events/"
 
       attr_accessor :specified_date, :specified_url
 

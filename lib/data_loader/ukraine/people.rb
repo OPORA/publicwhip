@@ -1,7 +1,7 @@
 module DataLoader
   module Ukraine
     class People
-      DEFAULT_EVERYPOLITICIAN_UKRAINE_URL = "https://raw.githubusercontent.com/everypolitician/everypolitician-data/master/data/Ukraine/Verkhovna_Rada/ep-popolo-v1.0.json"
+      DEFAULT_EVERYPOLITICIAN_UKRAINE_URL = "http://rails.oporaua.org:4567/"
 
       attr_accessor :data, :persons, :organizations, :areas, :events
 
