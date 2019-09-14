@@ -58,7 +58,7 @@ class Whip < ActiveRecord::Base
   end
 
   def self.calc_all_votes_per_party
-    Division.joins(:votes).joins("LEFT JOIN members ON divisions.house = members.house AND members.entered_house <= divisions.date AND divisions.date <= members.left_house").group("divisions.id", :party, :vote, :teller).count
+    Division.joins(votes: :member).group("divisions.id", :party, :vote, :teller).count
   end
 
   def self.calc_all_votes_per_party2
