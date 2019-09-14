@@ -46,7 +46,7 @@ class HomeController < ApplicationController
       end
     else
       if params[:button] == "hero_search" && @current_members.include?(params[:query].downcase)
-        redirect_to view_context.member_path(Member.with_name(params[:query]).first)
+        redirect_to view_context.member_path(Member.with_name(params[:query]).last)
       elsif !params[:query].blank?
         @mps = Member.find_by_search_query params[:query]
         @divisions = Division.find_by_search_query params[:query]
