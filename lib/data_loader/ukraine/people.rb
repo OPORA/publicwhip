@@ -1,7 +1,7 @@
 module DataLoader
   module Ukraine
     class People
-      DEFAULT_EVERYPOLITICIAN_UKRAINE_URL = "http://rails.oporaua.org:4567/"
+      DEFAULT_EVERYPOLITICIAN_UKRAINE_URL = "https://scrapermp.rada4you.org/"
 
       attr_accessor :data, :persons, :organizations, :areas, :events
 
