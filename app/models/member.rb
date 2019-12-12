@@ -143,7 +143,9 @@ class Member < ActiveRecord::Base
   def currently_in_parliament?
     in_parliament_on_date(Date.today)
   end
-
+  def in_parliament?
+    Member.find_by(	person_id: self.person_id, left_house: "9999-12-31" )
+  end
   def since
     I18n.l(entered_house, format: "%B %Y")
   end
