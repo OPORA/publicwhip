@@ -12,15 +12,6 @@ GIT
   specs:
     everypolitician-popolo (0.2.0)
 
-GIT
-  remote: git://github.com/openaustralia/marker.git
-  revision: aa7ce8589f3e2a26a0b78282fe82fce9fb85dfcb
-  ref: aa7ce85
-  branch: publicwhip
-  specs:
-    marker (0.4.0)
-      treetop (~> 1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,6 +217,8 @@ GEM
       sqlite3-ruby
       thin
     marked-rails (0.3.2.0)
+    marker (0.4.0)
+      treetop (~> 1.4)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
@@ -408,7 +401,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    treetop (1.5.3)
+    treetop (1.6.10)
       polyglot (~> 0.3)
     turbolinks (2.5.2)
       coffee-rails
@@ -476,7 +469,7 @@ DEPENDENCIES
   kaminari-i18n (~> 0.3.2)
   mailcatcher
   marked-rails
-  marker!
+  marker
   mechanize
   meta-tags
   mina
@@ -512,4 +505,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.6
+   1.16.5
